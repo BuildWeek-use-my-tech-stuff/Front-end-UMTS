@@ -1,3 +1,5 @@
 import { createContext } from "react";
 
-export const MyRentalsContext = createContext();
+const MyRentalsContext = createContext();
+
+export default MyRentalsContext;

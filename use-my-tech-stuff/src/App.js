@@ -1,24 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Route } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
+import Dashboard from "./components/Dashboard";
+import ProductsContext from './contexts/ProductsContext';
+import MyRentalsContext from './contexts/MyRentalsContext';
+import SavedContext from './contexts/SavedContext';
+
 
 function App() {
+  const [products, setProducts] = useState();
+  const [saved, setSaved] = useState();
+  const [myRentals, setMyRentals] = useState();
+
+  useEffect(() => {
+    axios
+      .get()
+      .then(res => {
+        console.log("Products successfully fetched!\n", res);
+        setProducts(res.data);
+      })
+      .catch(err => console.log("Error fetching products:\n", err));
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ProductsContext.Provider value={{ products, setProducts }}>
+        <MyRentalsContext.Provider value={{ myRentals, setMyRentals }}>
+          <SavedContext.Provider value={{ saved, setSaved }}>
+            <Dashboard />
+          </SavedContext.Provider>
+        </MyRentalsContext.Provider>
+      </ProductsContext.Provider>
+
     </div>
   );
 }
