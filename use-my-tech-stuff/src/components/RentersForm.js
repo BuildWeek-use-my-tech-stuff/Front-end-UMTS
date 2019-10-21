@@ -4,7 +4,7 @@ import RentersEditForm from './RentersEditForm';
 
 
 const RentersForm = () => {
- const {setItems, addTech,editTech, items,editing} =useContext(MyRentalsContext)
+ const {setItems, addTech, items,editing} =useContext(MyRentalsContext)
 
  const [title, setTitle]=useState('')
  const [price, setPrice]=useState('')
@@ -17,7 +17,6 @@ const handleTitleChange = e => {
 }
 const handlePriceChange = e => {
     setPrice(e.target.value)
-
 }
 
 const handleSubmit = e => {
@@ -34,7 +33,7 @@ const handleSubmit = e => {
             <input 
             type='text'
             placeholder='title'
-            onChange={handleTitleChange}
+            onChange={e=> setTitle(e.target.value)}
             value={title}
             required
             />

@@ -15,14 +15,12 @@ const RentersEditForm = () => {
     const handleSubmit = e => {
         e.preventDefault();
         addTech(title, price);
+        setEditing(false)
+        
         setTitle('')
         setPrice('')
-        setEditing(false)
     }
 
-    useEffect(()=> {
-        setEditItems(items)
-    }, [])
 
 
     return ( 
