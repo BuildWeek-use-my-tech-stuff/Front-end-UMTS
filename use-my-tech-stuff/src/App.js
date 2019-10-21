@@ -1,7 +1,10 @@
 import React from 'react';
 import './App.css';
-import NewUser from "./components/Form"
-import { Link } from 'react-router-dom'
+import NewUser from "./components/Form";
+import ReturningUser from "./components/LoginForm";
+import FooterNav from './components/Footer';
+import { BrowserRouter, Route, Link } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 function App() {
   return (
@@ -13,10 +16,20 @@ function App() {
       </header>
       <body>
         <div className="newUserForm01">
-          <h1 className="h1NewUserForm">Sign Up</h1>
-          <NewUser />
+          <ReturningUser />
         </div>
       </body>
+      <footer>
+      <BrowserRouter>
+                <FooterNav>
+                    <NavLink exact to="/" activeClassName="activeNavButton">Log In</NavLink>
+                    <NavLink to="./NewUser" activeClassName="activeNavButton">Create Account</NavLink>
+
+                    <Route exact path="/" component={ReturningUser}/>
+                    <Route path="/Form" component={NewUser}/>
+                </FooterNav>
+            </BrowserRouter>
+      </footer>
     </div>
   );
 }

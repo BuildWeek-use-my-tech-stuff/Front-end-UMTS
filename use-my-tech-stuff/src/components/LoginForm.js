@@ -2,8 +2,12 @@ import React, {useState, useEffect} from 'react';
 import {withFormik, Form, Field} from "formik";
 import axios from "axios";
 import * as Yup from "yup";
+import FooterNav from './Footer';
+import { BrowserRouter } from "react-router-dom";
+import NewUser from './Form';
+import { NavLink } from 'react-router-dom';
 
-const  NewUser = ({values, errors, touched, status}) => {
+const  ReturningUser = ({values, errors, touched, status}) => {
     const [user, setUser] = useState ([]);
 
     useEffect (() => {
@@ -13,20 +17,14 @@ const  NewUser = ({values, errors, touched, status}) => {
         }, [status]);
 
     return(
-        <div className="newUserForm">
+        <div className="ReturningUserForm">
             <h1>
-                Create An Account
+                Log In
             </h1>
 
             <Form>
-                <Field className="firstNameForm" type="text" name="name" placeholder="Full Name" />
-                {touched.name && errors.name && (<p className="error">{errors.name}</p>)}
-
                 <Field className="emailForm" type="email" name="email" placeholder="E-Mail Address" />
                 {touched.email && errors.email && (<p className="error">{errors.email}</p>)}
-
-                <Field className="phoneForm" type="phone" name="phone" placeholder="Phone Number" />
-                {touched.phone && errors.phone && (<p className="error">{errors.phone}</p>)}
 
                 <Field className="passwordForm" type="password" name="password" placeholder="Password" />
                 {touched.password && errors.password && (<p className="error">{errors.password}</p>)}
@@ -38,7 +36,6 @@ const  NewUser = ({values, errors, touched, status}) => {
 
             {user.map( person => (
                 <ul key={person.id}>
-                    <li>Name: {person.name}</li>
                     <li>Email: {person.email}</li>
                     <li>Password: {"●".repeat(person.password.length)}</li>
                 </ul>
@@ -49,21 +46,18 @@ const  NewUser = ({values, errors, touched, status}) => {
     )
 }
 
-const FormikNewUser = withFormik({
-        mapPropsToValues({name, email, password}){
+const FormikReturningUser = withFormik({
+        mapPropsToValues({email, password}){
             return{
-                name: name || "",
                 email: email || "",
                 password: password || "",
             };
         },
         validationSchema: Yup.object().shape({
-            name: Yup.string().min(2, "Name must have more than one character.").required("Required field."),
             email: Yup.string().email("Email not valid."),
-            phone: Yup.string().min(10, "Phone Number must have 10 digits"),
             password: Yup.string().min(8, "Password must have at least 8 characters.").required("Required field."),
         })
         
-    })(NewUser)
+    })(ReturningUser)
 
-export default FormikNewUser; 
+export default FormikReturningUser; 
