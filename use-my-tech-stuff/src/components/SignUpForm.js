@@ -1,77 +1,73 @@
-import React, {useState, useEffect} from 'react';
-import {withFormik, Form, Field} from "formik";
-import axios from "axios";
-import * as Yup from "yup";
-import Header from './Header';
-import Footer from "./Footer";
+// import React, {useState, useEffect} from 'react';
+// import {withFormik, Form, Field} from "formik";
+// import axios from "axios";
+// import * as Yup from "yup";
+// import Footer from "./Footer";
 
-const  Forms = ({values, errors, touched, status}) => {
-    const [user, setUser] = useState ([]);
+// const  Forms = ({values, errors, touched, status}) => {
+//     const [user, setUser] = useState ([]);
 
-    // useEffect (() => {
-    //     if(status) {
-    //         setUser([...user, status])
-    //         }
-    //     }, [status]);
+//     // useEffect (() => {
+//     //     if(status) {
+//     //         setUser([...user, status])
+//     //         }
+//     //     }, [status]);
 
-    return(
-        <div className="newUserForm">
+//     return(
+//         <div className="newUserForm">
+//             <h1>
+//                 Create An Account
+//             </h1>
 
-            <Header />
+//             <Form>
+//                 <Field className="firstNameForm" type="text" name="name" placeholder="Full Name" />
+//                 {touched.name && errors.name && (<p className="error">{errors.name}</p>)}
 
-            <h1>
-                Create An Account
-            </h1>
+//                 <Field className="emailForm" type="email" name="email" placeholder="E-Mail Address" />
+//                 {touched.email && errors.email && (<p className="error">{errors.email}</p>)}
 
-            <Form>
-                <Field className="nameForm" type="text" name="name" placeholder="Full Name" />
-                {touched.name && errors.name && (<p className="error">{errors.name}</p>)}
+//                 <Field className="phoneForm" type="phone" name="phone" placeholder="Phone Number" />
+//                 {touched.phone && errors.phone && (<p className="error">{errors.phone}</p>)}
 
-                <Field className="emailForm" type="email" name="email" placeholder="E-Mail Address" />
-                {touched.email && errors.email && (<p className="error">{errors.email}</p>)}
+//                 <Field className="passwordForm" type="password" name="password" placeholder="Password" />
+//                 {touched.password && errors.password && (<p className="error">{errors.password}</p>)}
 
-                <Field className="phoneForm" type="phone" name="phone" placeholder="Phone Number" />
-                {touched.phone && errors.phone && (<p className="error">{errors.phone}</p>)}
-
-                <Field className="passwordForm" type="password" name="password" placeholder="Password" />
-                {touched.password && errors.password && (<p className="error">{errors.password}</p>)}
-
-                <button className="subButton">Submit</button>  
-            </Form>
+//                 <button className="subButton">Submit</button>  
+//             </Form>
 
             
 
-            {/* {user.map( person => (
-                <ul key={person.id}>
-                    <li>Name: {person.name}</li>
-                    <li>Email: {person.email}</li>
-                    <li>Password: {"●".repeat(person.password.length)}</li>
-                </ul>
-                    )
-                )
-            } */}
+//             {/* {user.map( person => (
+//                 <ul key={person.id}>
+//                     <li>Name: {person.name}</li>
+//                     <li>Email: {person.email}</li>
+//                     <li>Password: {"●".repeat(person.password.length)}</li>
+//                 </ul>
+//                     )
+//                 )
+//             } */}
 
-            <Footer />
+//             {/* <Footer /> */}
 
-        </div>
-    )
-}
+//         </div>
+//     )
+// }
 
-const FormikForms = withFormik({
-        mapPropsToValues({name, email, password}){
-            return{
-                name: name || "",
-                email: email || "",
-                password: password || "",
-            };
-        },
-        validationSchema: Yup.object().shape({
-            name: Yup.string().min(2, "Name must have more than one character.").required("Required field."),
-            email: Yup.string().email("Email not valid."),
-            phone: Yup.string().min(10, "Phone Number must have 10 digits"),
-            password: Yup.string().min(8, "Password must have at least 8 characters.").required("Required field."),
-        })
+// const FormikForms = withFormik({
+//         mapPropsToValues({name, email, password}){
+//             return{
+//                 name: name || "",
+//                 email: email || "",
+//                 password: password || "",
+//             };
+//         },
+//         validationSchema: Yup.object().shape({
+            // name: Yup.string().min(2, "Name must have more than one character.").required("Required field."),
+            // email: Yup.string().email("Email not valid."),
+            // phone: Yup.string().min(10, "Phone Number must have 10 digits"),
+            // password: Yup.string().min(8, "Password must have at least 8 characters.").required("Required field."),
+//         })
         
-    })(Forms)
+//     })(Forms)
 
-export default FormikForms; 
+// export default FormikForms; 

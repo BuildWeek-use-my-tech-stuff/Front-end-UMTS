@@ -8,14 +8,16 @@ import Dashboard from "./components/Dashboard";
 import ProductsContext from './contexts/ProductsContext';
 import MyRentalsContext from './contexts/MyRentalsContext';
 import SavedContext from './contexts/SavedContext';
-import NewLogin from './components/LoginForm';
 import Forms from './components/SignUpForm'
+// import LoginForm from './components/LoginForm'
+import NewLogin from './components/NewLogin';
+import NewSignUp from './components/NewSignUp';
 
 
 function App() {
-  // const [products, setProducts] = useState();
-  // const [saved, setSaved] = useState();
-  // const [myRentals, setMyRentals] = useState();
+  const [products, setProducts] = useState();
+  const [saved, setSaved] = useState();
+  const [myRentals, setMyRentals] = useState();
 
   // useEffect(() => {
   //   axios
@@ -29,8 +31,9 @@ function App() {
 
   return (
     <div className="App">
+
       <Route exact path ="/" component={NewLogin} />
-      <Route path ="/CreateAccount" component={Forms} />
+      <Route path ="/CreateAccount" component={NewSignUp} />
       {/* <TechContextProvider>
         <RentersList />
         <RentersForm />

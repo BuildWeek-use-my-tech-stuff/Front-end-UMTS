@@ -7,10 +7,13 @@ import { BrowserRouter as Router, withRouter } from "react-router-dom";
 
 const AppWithRouter = withRouter(App);
 
+
 ReactDOM.render(
     <Router>
-        <AppWithRouter />
+        <App />
     </Router>
     , document.getElementById('root'));
+    
+
 
 
