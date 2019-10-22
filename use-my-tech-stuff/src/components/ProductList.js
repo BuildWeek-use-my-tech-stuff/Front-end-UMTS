@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ProductContext from "../contexts/ProductsContext";
 import Product from "./Product";
 import axios from "axios";
@@ -6,11 +6,13 @@ import axios from "axios";
 
 const ProductList = () => {
     const [products, setProducts] = useContext({ ProductContext });
+    const [displayed, setDisplayed] = useState(products);
+    
 
 
     return (
         <div className="product-list">
-            {products && products.map(product => <Product product={product} />)}
+            {displayed && displayed.map(product => <Product product={product} />)}
         </div>
     );
 };
