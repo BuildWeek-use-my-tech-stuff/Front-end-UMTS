@@ -2,6 +2,112 @@
   text-align: center;
 }
 
+<<<<<<< HEAD
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #5ab9ea;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+body {
+  font-family: 'Montserrat';
+}
+
+.h1NewUserForm {
+  padding-top: 20px;
+}
+
+.newUserForm {
+  height: 489px;
+}
+
+.newUserForm01 {
+  display: flex;
+  flex-direction: column;
+}
+
+.firstNameForm {
+  background-color: #F2F2F2;
+  border: none;
+  width: 60%;
+  height: 100px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.firstNameForm::-webkit-input-placeholder {
+  font-family: 'Montserrat';
+}
+
+.emailForm {
+  background-color: #F2F2F2;
+  border: none;
+  margin-top: 50px;
+  width: 60%;
+  height: 100px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.emailForm::-webkit-input-placeholder {
+  font-family: 'Montserrat';
+}
+
+.phoneForm {
+  background-color: #F2F2F2;
+  border: none;
+  margin-top: 50px;
+  width: 60%;
+  height: 100px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.passwordForm {
+  background-color: #F2F2F2;
+  border: none;
+  width: 60%;
+  height: 100px;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.passwordForm::-webkit-input-placeholder {
+  font-family: 'Montserrat';
+}
+
+.subButton {
+  background-color: #F2F2F2;
+  border: none;
+  margin: 20px 0;
+  font-size: 1rem;
+  text-align: center;
+  margin: 25px 250px;
+  width: 150px;
+  height: 50px;
+}
+
+.error {
+  color: red;
+  margin: 0 46%;
+  width: 125px;
+  text-align: center;
+=======
 .item-list{
   list-style-type: none;
+>>>>>>> 0dfb9e5336b3d6865c357c4371fbd81bc52db341
 }
