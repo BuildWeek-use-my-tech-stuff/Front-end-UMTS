@@ -27,7 +27,9 @@ function App() {
 
   return (
     <div className="App">
-      <h2>Use My Tech Stuff</h2>
+
+      <Route exact path ="/" component={LoginForm} />
+      <Route path ="/CreateAccount" component={Form} />
       <TechContextProvider>
         <RentersList />
         <RentersForm />
