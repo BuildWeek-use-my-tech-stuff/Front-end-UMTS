@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import ReturningUser from "./LoginForm";
-import NewUser from "./Form";
+import NewUser from "./SignUpForm";
 
 const style = {
     backgroundColor: "#F8F8F8",

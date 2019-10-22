@@ -4,7 +4,7 @@ import axios from "axios";
 import * as Yup from "yup";
 import Footer from './Footer';
 import { BrowserRouter } from "react-router-dom";
-import NewUser from './Form';
+import NewUser from './SignUpForm';
 import { NavLink } from 'react-router-dom';
 
 const  LoginForm = ({values, errors, touched, status}) => {

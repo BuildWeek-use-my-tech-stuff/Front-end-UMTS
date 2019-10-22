@@ -1,10 +1,9 @@
 import React from 'react';
 import './App.css';
-import NewUser from "./components/Form";
 import LoginForm from "./components/LoginForm";
 import FooterNav from './components/Footer';
 import { BrowserRouter, Route } from "react-router-dom";
-import Form from './components/Form';
+import Form from './components/SignUpForm';
 // import { NavLink } from 'react-router-dom';
 
 function App() {
