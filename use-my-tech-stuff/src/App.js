@@ -8,6 +8,8 @@ import Dashboard from "./components/Dashboard";
 import ProductsContext from './contexts/ProductsContext';
 import MyRentalsContext from './contexts/MyRentalsContext';
 import SavedContext from './contexts/SavedContext';
+import Forms from './components/SignUpForm'
+import LoginForm from './components/LoginForm'
 
 
 function App() {
@@ -27,11 +29,13 @@ function App() {
 
   return (
     <div className="App">
-      <h2>Use My Tech Stuff</h2>
-      <TechContextProvider>
+
+      <Route exact path ="/" component={LoginForm} />
+      <Route path ="/CreateAccount" component={Forms} />
+      {/* <TechContextProvider>
         <RentersList />
         <RentersForm />
-      </TechContextProvider>
+      </TechContextProvider> */}
       {/* <ProductsContext.Provider value={{ products, setProducts }}>
         <MyRentalsContext.Provider value={{ myRentals, setMyRentals }}>
           <SavedContext.Provider value={{ saved, setSaved }}>
