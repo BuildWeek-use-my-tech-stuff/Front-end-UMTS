@@ -9,7 +9,8 @@ import ProductsContext from './contexts/ProductsContext';
 import MyRentalsContext from './contexts/MyRentalsContext';
 import SavedContext from './contexts/SavedContext';
 import Forms from './components/SignUpForm'
-import LoginForm from './components/LoginForm'
+// import LoginForm from './components/LoginForm'
+import NewLogin from './components/NewLogin';
 
 
 function App() {
@@ -30,8 +31,8 @@ function App() {
   return (
     <div className="App">
 
-      <Route exact path ="/" component={LoginForm} />
-      <Route path ="/CreateAccount" component={Forms} />
+      <Route exact path ="/" component={NewLogin} />
+      {/* <Route path ="/CreateAccount" component={Forms} /> */}
       {/* <TechContextProvider>
         <RentersList />
         <RentersForm />
