@@ -5,11 +5,7 @@ import SearchForm from "./SearchForm";
 import axios from "axios";
 
 
-const ProductList = () => {
-    const [products, setProducts] = useContext({ ProductContext });
-    const [displayed, setDisplayed] = useState(products);
-
-
+const ProductList = ({ displayed }) => {
     return (
         <div className="product-list">
             {displayed && displayed.map(product => <Product product={product} />)}
