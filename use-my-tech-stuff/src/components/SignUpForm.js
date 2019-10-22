@@ -1,11 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import {withFormik, Form, Field} from "formik";
+import React, { useState, useEffect } from 'react';
+import { withFormik, Form, Field } from "formik";
 import axios from "axios";
+import axiosWithAuth from "../utils/axiosWithAuth";
 import * as Yup from "yup";
 import Footer from "./Footer";
 
-const  Forms = ({values, errors, touched, status}) => {
-    const [user, setUser] = useState ([]);
+const Forms = ({ values, errors, touched, status }) => {
+    const [user, setUser] = useState([]);
 
     // useEffect (() => {
     //     if(status) {
@@ -13,7 +14,9 @@ const  Forms = ({values, errors, touched, status}) => {
     //         }
     //     }, [status]);
 
-    return(
+
+
+    return (
         <div className="newUserForm">
             <h1>
                 Create An Account
@@ -32,10 +35,10 @@ const  Forms = ({values, errors, touched, status}) => {
                 <Field className="passwordForm" type="password" name="password" placeholder="Password" />
                 {touched.password && errors.password && (<p className="error">{errors.password}</p>)}
 
-                <button className="subButton">Submit</button>  
+                <button className="subButton">Submit</button>
             </Form>
 
-            
+
 
             {/* {user.map( person => (
                 <ul key={person.id}>
@@ -54,20 +57,32 @@ const  Forms = ({values, errors, touched, status}) => {
 }
 
 const FormikForms = withFormik({
-        mapPropsToValues({name, email, password}){
-            return{
-                name: name || "",
-                email: email || "",
-                password: password || "",
-            };
-        },
-        validationSchema: Yup.object().shape({
-            name: Yup.string().min(2, "Name must have more than one character.").required("Required field."),
-            email: Yup.string().email("Email not valid."),
-            phone: Yup.string().min(10, "Phone Number must have 10 digits"),
-            password: Yup.string().min(8, "Password must have at least 8 characters.").required("Required field."),
-        })
-        
-    })(Forms)
+    mapPropsToValues({ name, email, password }) {
+        return {
+            name: name || "",
+            email: email || "",
+            password: password || "",
+        };
+    },
+    validationSchema: Yup.object().shape({
+        name: Yup.string().min(2, "Name must have more than one character.").required("Required field."),
+        email: Yup.string().email("Email not valid."),
+        phone: Yup.string().min(10, "Phone Number must have 10 digits"),
+        password: Yup.string().min(8, "Password must have at least 8 characters.").required("Required field."),
+    }),
+    handleSubmit(values, errors, { props, setErrors }) {
+        if (!(errors.name || errors.password)) {
+            axiosWithAuth()
+                .post("/auth/register", values)
+                .then(res => {
+                    console.log("Account successfully created!\n", res);
+                    localStorage.setItem("token", res.data.token);
+                    props.history.push("/products");
+                })
+                .catch(err => console.log("Error creating account.\n", err));
+        }
+    }
+
+})(Forms)
 
 export default FormikForms; 
