@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+<<<<<<< HEAD
 .App-logo {
   height: 40vmin;
 }
@@ -105,4 +106,8 @@ body {
   margin: 0 46%;
   width: 125px;
   text-align: center;
+=======
+.item-list{
+  list-style-type: none;
+>>>>>>> 0dfb9e5336b3d6865c357c4371fbd81bc52db341
 }

@@ -1,29 +1,47 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './App.css';
-import LoginForm from "./components/LoginForm";
-import FooterNav from './components/Footer';
-import { BrowserRouter, Route } from "react-router-dom";
-import Form from './components/SignUpForm';
-// import { NavLink } from 'react-router-dom';
+import TechContextProvider from './contexts/MyRentalsContext'
+import RentersList from './components/RentersList';
+import RentersForm from './components/RentersForm';
+import { Route } from "react-router-dom";
+import Dashboard from "./components/Dashboard";
+import ProductsContext from './contexts/ProductsContext';
+import MyRentalsContext from './contexts/MyRentalsContext';
+import SavedContext from './contexts/SavedContext';
+
 
 function App() {
+  // const [products, setProducts] = useState();
+  // const [saved, setSaved] = useState();
+  // const [myRentals, setMyRentals] = useState();
+
+  // useEffect(() => {
+  //   axios
+  //     .get()
+  //     .then(res => {
+  //       console.log("Products successfully fetched!\n", res);
+  //       setProducts(res.data);
+  //     })
+  //     .catch(err => console.log("Error fetching products:\n", err));
+  // }, []);
+
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <div>
-          <h1>Use My Tech Stuff</h1>
-        </div>
-      </header>
-      <body>
-        <div className="newUserForm01">
-          <ReturningUser />
-        </div>
-      </body>
-      <footer>
-        <FooterNav />
-      </footer> */}
+
       <Route exact path ="/" component={LoginForm} />
       <Route path ="/CreateAccount" component={Form} />
+      <TechContextProvider>
+        <RentersList />
+        <RentersForm />
+      </TechContextProvider>
+      {/* <ProductsContext.Provider value={{ products, setProducts }}>
+        <MyRentalsContext.Provider value={{ myRentals, setMyRentals }}>
+          <SavedContext.Provider value={{ saved, setSaved }}>
+            <Dashboard />
+          </SavedContext.Provider>
+        </MyRentalsContext.Provider>
+      </ProductsContext.Provider> */}
+
     </div>
   );
 }

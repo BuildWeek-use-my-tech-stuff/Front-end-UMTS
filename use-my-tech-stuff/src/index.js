@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+<<<<<<< HEAD
 import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
@@ -11,8 +12,16 @@ ReactDOM.render(
     </Router>,
     document.getElementById("root")
   );
+=======
+import { BrowserRouter as Router, withRouter } from "react-router-dom";
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const AppWithRouter = withRouter(App);
+
+ReactDOM.render(
+    <Router>
+        <AppWithRouter />
+    </Router>
+    , document.getElementById('root'));
+
+>>>>>>> 0dfb9e5336b3d6865c357c4371fbd81bc52db341
+
