@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const SearchForm = props => {
+const SearchForm = ({ products, setDisplayed }) => {
+    const [search, setSearch] = useState();
+
+    useEffect(() => {
+        setDisplayed(products.filter(product => product.name.includes(search)));
+    }, [search]);
+
     handleChanges = e => {
-        props.setDisplayed(props.products.filter(product => product.name.includes(e.target.value)));
-    }
+        setSearch(e.target.value);
+    };
 
     return (
         <div className="search-form">
-            <input onChange={handleChanges} placeholder="Search" />
+            <input onChange={handleChanges} value={search} placeholder="Search" />
         </div>
     );
 
