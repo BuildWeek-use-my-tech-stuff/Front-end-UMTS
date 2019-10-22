@@ -1,66 +1,57 @@
-import React, {useState, useEffect} from 'react';
-import {withFormik, Form, Field} from "formik";
-import axios from "axios";
-import * as Yup from "yup";
+import React,{useState} from 'react'
+import axiosWithAuth from '../utils/axiosWithAuth'
+import Header from './Header';
 import Footer from './Footer';
-import { BrowserRouter } from "react-router-dom";
-import NewUser from './SignUpForm';
-import { NavLink } from 'react-router-dom';
 
-const  LoginForm = ({values, errors, touched, status}) => {
-    const [user, setUser] = useState ([]);
+const LoginForm = (props) => {
+    const [credentials, setCredentials] = useState({
+        username: '',
+        password: '', 
+    })
+    const handleChanges = e => {
+    setCredentials({
+        ...credentials,
+        [e.target.name]: e.target.value
+    })
+}
+  const handleSubmit = e => {
+    e.preventDefault();
+    axiosWithAuth().post("/auth/login", credentials)
+        .then(res => {
+            localStorage.setItem('token', res.data.token)
+            props.history.push("/CreateAccount")    
+        })
+        .catch(err => console.log(err.response))
+}
+    return ( 
+        <div className="loginForm">
 
-    // useEffect (() => {
-    //     if(status) {
-    //         setUser([...user, status])
-    //         }
-    //     }, [status]);
+            <h1>Log In</h1>
 
-    return(
-        <div className="ReturningUserForm">
-            <h1>
-                Log In
-            </h1>
+            <Header />
 
-            <Form>
-                <Field className="emailForm" type="email" name="email" placeholder="E-Mail Address" />
-                {touched.email && errors.email && (<p className="error">{errors.email}</p>)}
-
-                <Field className="passwordForm" type="password" name="password" placeholder="Password" />
-                {touched.password && errors.password && (<p className="error">{errors.password}</p>)}
-
-                <button className="subButton">Submit</button>  
-            </Form>
-
-            
-
-            {/* {user.map( person => (
-                <ul key={person.id}>
-                    <li>Email: {person.email}</li>
-                    <li>Password: {"●".repeat(person.password.length)}</li>
-                </ul>
-                    )
-                )
-            } */}
+            <form onSubmit={handleSubmit}>
+                <input  className="nameForm"
+                type='text'
+                name='username'
+                placeholder='Username'  
+                value={credentials.username}
+                onChange={handleChanges}
+                />
+                <input  className="passwordForm"
+                type='password'
+                name='password'
+                placeholder='Password'  
+                value={credentials.password}
+                onChange={handleChanges}
+                />
+                <button type='submit' className="subButton">Login</button>
+            </form>
 
             <Footer />
 
         </div>
-    )
+     );
 }
-
-const FormikLoginForm = withFormik({
-        mapPropsToValues({email, password}){
-            return{
-                email: email || "",
-                password: password || "",
-            };
-        },
-        validationSchema: Yup.object().shape({
-            email: Yup.string().email("Email not valid.").required("Required field."),
-            password: Yup.string().min(8, "Password must have at least 8 characters.").required("Required field."),
-        })
-        
-    })(LoginForm)
-
-export default FormikLoginForm; 
+ 
+export default LoginForm;

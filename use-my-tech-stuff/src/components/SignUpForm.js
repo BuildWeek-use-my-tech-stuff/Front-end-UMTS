@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {withFormik, Form, Field} from "formik";
 import axios from "axios";
 import * as Yup from "yup";
+import Header from './Header';
 import Footer from "./Footer";
 
 const  Forms = ({values, errors, touched, status}) => {
@@ -15,12 +16,15 @@ const  Forms = ({values, errors, touched, status}) => {
 
     return(
         <div className="newUserForm">
+
+            <Header />
+
             <h1>
                 Create An Account
             </h1>
 
             <Form>
-                <Field className="firstNameForm" type="text" name="name" placeholder="Full Name" />
+                <Field className="nameForm" type="text" name="name" placeholder="Full Name" />
                 {touched.name && errors.name && (<p className="error">{errors.name}</p>)}
 
                 <Field className="emailForm" type="email" name="email" placeholder="E-Mail Address" />

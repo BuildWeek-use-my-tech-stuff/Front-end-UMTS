@@ -13,8 +13,27 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.75rem;
   color: white;
+  margin-bottom: 50px;
+  position: fixed;
+  right: 0; top:0; left:0;
+}
+
+.App-header a {
+  color: white;
+  margin: 25px 0px 25px 50px;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.App-header a:hover {
+  color: #8860D0;
+  transition: 1.0s;
+}
+
+.App-header h1{
+  margin: 0px 200px 0px 0px;
 }
 
 .App-link {
@@ -23,6 +42,8 @@
 
 body {
   font-family: 'Montserrat';
+  min-height: 700px;
+  margin: 150px 0;
 }
 
 .h1NewUserForm {
@@ -38,7 +59,7 @@ body {
   flex-direction: column;
 }
 
-.firstNameForm {
+.nameForm {
   background-color: #F2F2F2;
   border: none;
   width: 60%;
@@ -47,7 +68,7 @@ body {
   text-align: center;
 }
 
-.firstNameForm::-webkit-input-placeholder {
+.nameForm::-webkit-input-placeholder {
   font-family: 'Montserrat';
 }
 
@@ -105,6 +126,27 @@ body {
   margin: 0 46%;
   width: 125px;
   text-align: center;
+}
+
+.footerNav {
+  height: 50px;
+  background-color: #5ab9ea;
+  position: fixed;
+  right: 0;bottom:0;left:0;
+  margin-top: 20px;
+  padding-top: 25px;
+}
+
+.footerNav a {
+  color: white;
+  margin-top: 50px;
+  padding: 0 10px;
+  text-decoration: none;
+}
+
+.footerNav a:hover {
+  color: #8860D0;
+  transition: 1.0s;
 }
 
 .item-list{
