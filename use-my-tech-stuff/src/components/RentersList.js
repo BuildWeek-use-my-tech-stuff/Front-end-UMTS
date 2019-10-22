@@ -6,7 +6,7 @@ import RentersDisplay from './RentersDisplay'
 const RentersList = () => {
     const {items}=useContext(MyRentalsContext)
 
-    return items.length ? ( 
+    return items.length? ( 
         <div >
             <ul >
                 {items.map(item => {

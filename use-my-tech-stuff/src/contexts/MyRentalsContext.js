@@ -34,9 +34,13 @@ const TechContextProvider = (props) => {
   }
 
 
-  const editTech =(id, updatedTech) => {
+  // const editTech =(id, updatedTech) => {
+  //   setEditing(true)
+  //   setItems(items.map(tech=> tech.id === id ?  updatedTech : tech ))
+  // }
+
+  const editTech = (item) => {
     setEditing(true)
-    setItems(items.map(tech=> tech.id === id ?  updatedTech : tech ))
   }
 
 
