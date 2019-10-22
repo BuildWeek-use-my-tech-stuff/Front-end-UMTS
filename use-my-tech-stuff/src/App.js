@@ -11,9 +11,9 @@ import SavedContext from './contexts/SavedContext';
 
 
 function App() {
-  // const [products, setProducts] = useState();
-  // const [saved, setSaved] = useState();
-  // const [myRentals, setMyRentals] = useState();
+  const [products, setProducts] = useState();
+  const [saved, setSaved] = useState();
+  const [myRentals, setMyRentals] = useState();
 
   // useEffect(() => {
   //   axios

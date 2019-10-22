@@ -14,13 +14,13 @@ const TechContextProvider = (props) => {
   const [editing, setEditing] = useState(false)
 
 
-//     axios
-//     .get(`url`)
-//     .then(res => {
-//         console.log(res.data)
-//         setItems(res.data)
-//     .catch(err => console.log('error from get',err.response))
-// })
+    axios
+    .get(`url`)
+    .then(res => {
+        console.log(res.data)
+        setItems(res.data)
+    .catch(err => console.log('error from get',err.response))
+})
 
 
 
@@ -34,14 +34,14 @@ const TechContextProvider = (props) => {
   }
 
 
-  // const editTech =(id, updatedTech) => {
-  //   setEditing(true)
-  //   setItems(items.map(tech=> tech.id === id ?  updatedTech : tech ))
-  // }
-
-  const editTech = (item) => {
+  const editTech =(id, updatedTech) => {
     setEditing(true)
+    setItems(items.map(tech=> tech.id === id ?  updatedTech : tech ))
   }
+
+  // const editTech = (item) => {
+  //   setEditing(true)
+  // }
 
 
   return (

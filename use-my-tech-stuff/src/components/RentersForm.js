@@ -48,7 +48,16 @@ const handleSubmit = e => {
         </form>
 
     ):(
-        <RentersEditForm />
+        <>
+          {items.map(item => {
+                    return (
+                        <>
+                    <RentersEditForm item={item} key={item.id} />
+                    </>
+                    )
+                })}
+        
+        </>
      );
 }
  
