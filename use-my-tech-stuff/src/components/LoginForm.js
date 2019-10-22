@@ -54,7 +54,7 @@ const FormikReturningUser = withFormik({
             };
         },
         validationSchema: Yup.object().shape({
-            email: Yup.string().email("Email not valid."),
+            email: Yup.string().email("Email not valid.").required("Required field."),
             password: Yup.string().min(8, "Password must have at least 8 characters.").required("Required field."),
         })
         

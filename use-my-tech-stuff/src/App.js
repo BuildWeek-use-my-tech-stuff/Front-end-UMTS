@@ -20,15 +20,7 @@ function App() {
         </div>
       </body>
       <footer>
-      <BrowserRouter>
-                <FooterNav>
-                    <NavLink exact to="/" activeClassName="activeNavButton">Log In</NavLink>
-                    <NavLink to="./NewUser" activeClassName="activeNavButton">Create Account</NavLink>
-
-                    <Route exact path="/" component={ReturningUser}/>
-                    <Route path="/Form" component={NewUser}/>
-                </FooterNav>
-            </BrowserRouter>
+        <FooterNav />
       </footer>
     </div>
   );

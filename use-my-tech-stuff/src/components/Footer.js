@@ -1,4 +1,8 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
+import { BrowserRouter, Route, Link } from "react-router-dom";
+import ReturningUser from "./LoginForm";
+import NewUser from "./Form";
 
 const style = {
     backgroundColor: "#F8F8F8",
@@ -20,15 +24,18 @@ const phantom = {
   width: '100%',
 }
 
-function FooterNav({ children }) {
+function FooterNav() {
     return (
-        <div>
-            <div style={phantom} />
-            <div style={style}>
-                { children }
-            </div>
-        </div>
+    <BrowserRouter>
+        <NavLink exact to="/" activeClassName="activeNavButton">Log In</NavLink>
+        <NavLink to="./NewUser" activeClassName="activeNavButton">Create Account</NavLink>
+
+        <Route exact path="/LoginForm" component={ReturningUser}/>
+        <Route path="/Form" component={NewUser}/>
+    </BrowserRouter>
     )
 }
+
+
 
 export default FooterNav;

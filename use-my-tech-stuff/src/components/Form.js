@@ -49,7 +49,7 @@ const  NewUser = ({values, errors, touched, status}) => {
     )
 }
 
-const FormikNewUser = withFormik({
+const NewUserFormik = withFormik({
         mapPropsToValues({name, email, password}){
             return{
                 name: name || "",
@@ -66,4 +66,4 @@ const FormikNewUser = withFormik({
         
     })(NewUser)
 
-export default FormikNewUser; 
+export default NewUser; 
