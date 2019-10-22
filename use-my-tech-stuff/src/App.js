@@ -9,6 +9,8 @@ import ProductsContext from './contexts/ProductsContext';
 import MyRentalsContext from './contexts/MyRentalsContext';
 import SavedContext from './contexts/SavedContext';
 import PrivateRoute from "./components/PrivateRoute";
+import LoginForm from "./components/LoginForm";
+import SignUpForm from "./components/SignUpForm";
 
 function App() {
   // const [products, setProducts] = useState();
@@ -29,7 +31,7 @@ function App() {
     <div className="App">
 
       <Route exact path="/" component={LoginForm} />
-      <Route path="/CreateAccount" component={Form} />
+      <Route path="/CreateAccount" component={SignUpForm} />
       <PrivateRoute path="/products" component={Dashboard} />
       <TechContextProvider>
         <RentersList />

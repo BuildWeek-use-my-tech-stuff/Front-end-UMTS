@@ -7,7 +7,7 @@ const SearchForm = ({ products, setDisplayed }) => {
         setDisplayed(products.filter(product => product.name.includes(search)));
     }, [search]);
 
-    handleChanges = e => {
+    const handleChanges = e => {
         setSearch(e.target.value);
     };
 
