@@ -1,6 +1,7 @@
 import React,{useContext} from 'react'
 import { TechContext, MyRentalsContext } from '../contexts/MyRentalsContext';
 import RentersDisplay from './RentersDisplay'
+import RentersEditForm from './RentersEditForm';
 
 
 const RentersList = () => {
@@ -11,7 +12,9 @@ const RentersList = () => {
             <ul >
                 {items.map(item => {
                     return (
+                        <>
                     <RentersDisplay item={item} key={item.id} />
+                    </>
                     )
                 })}
             </ul>

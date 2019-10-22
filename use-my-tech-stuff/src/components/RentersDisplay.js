@@ -12,7 +12,7 @@ const RentersDisplay = ({item,editing}) => {
             <div className="title">{item.title}</div>
             <div className="price">{item.price}</div>
             <button onClick={()=> removeTech(item.id)}>remove</button>
-            <button onClick={()=>editTech(item.id)}>Edit</button>
+            <button onClick={()=>editTech(item)}>Edit</button>
         </li>
     )
 }
