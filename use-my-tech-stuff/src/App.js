@@ -1,15 +1,16 @@
 import React from 'react';
 import './App.css';
 import NewUser from "./components/Form";
-import ReturningUser from "./components/LoginForm";
+import LoginForm from "./components/LoginForm";
 import FooterNav from './components/Footer';
-import { BrowserRouter, Route, Link } from "react-router-dom";
-import { NavLink } from 'react-router-dom';
+import { BrowserRouter, Route } from "react-router-dom";
+import Form from './components/Form';
+// import { NavLink } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <div>
           <h1>Use My Tech Stuff</h1>
         </div>
@@ -21,7 +22,9 @@ function App() {
       </body>
       <footer>
         <FooterNav />
-      </footer>
+      </footer> */}
+      <Route exact path ="/" component={LoginForm} />
+      <Route path ="/CreateAccount" component={Form} />
     </div>
   );
 }

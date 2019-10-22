@@ -24,18 +24,22 @@ const phantom = {
   width: '100%',
 }
 
-function FooterNav() {
+function Footer() {
     return (
-    <BrowserRouter>
-        <NavLink exact to="/" activeClassName="activeNavButton">Log In</NavLink>
+    // <BrowserRouter>
+    <div>
+        {/* <NavLink exact to="/" activeClassName="activeNavButton">Log In</NavLink>
         <NavLink to="./NewUser" activeClassName="activeNavButton">Create Account</NavLink>
 
         <Route exact path="/LoginForm" component={ReturningUser}/>
-        <Route path="/Form" component={NewUser}/>
-    </BrowserRouter>
+        <Route path="/Form" component={NewUser}/> */}
+        <NavLink to="/">Log In</NavLink>
+        <NavLink to="/CreateAccount">Create Account</NavLink>
+    {/* // </BrowserRouter> */}
+    </div>
     )
 }
 
 
 
-export default FooterNav;
+export default Footer;

@@ -2,19 +2,19 @@ import React, {useState, useEffect} from 'react';
 import {withFormik, Form, Field} from "formik";
 import axios from "axios";
 import * as Yup from "yup";
-import FooterNav from './Footer';
+import Footer from './Footer';
 import { BrowserRouter } from "react-router-dom";
 import NewUser from './Form';
 import { NavLink } from 'react-router-dom';
 
-const  ReturningUser = ({values, errors, touched, status}) => {
+const  LoginForm = ({values, errors, touched, status}) => {
     const [user, setUser] = useState ([]);
 
-    useEffect (() => {
-        if(status) {
-            setUser([...user, status])
-            }
-        }, [status]);
+    // useEffect (() => {
+    //     if(status) {
+    //         setUser([...user, status])
+    //         }
+    //     }, [status]);
 
     return(
         <div className="ReturningUserForm">
@@ -34,19 +34,22 @@ const  ReturningUser = ({values, errors, touched, status}) => {
 
             
 
-            {user.map( person => (
+            {/* {user.map( person => (
                 <ul key={person.id}>
                     <li>Email: {person.email}</li>
                     <li>Password: {"●".repeat(person.password.length)}</li>
                 </ul>
                     )
                 )
-            }
+            } */}
+
+            <Footer />
+
         </div>
     )
 }
 
-const FormikReturningUser = withFormik({
+const FormikLoginForm = withFormik({
         mapPropsToValues({email, password}){
             return{
                 email: email || "",
@@ -58,6 +61,6 @@ const FormikReturningUser = withFormik({
             password: Yup.string().min(8, "Password must have at least 8 characters.").required("Required field."),
         })
         
-    })(ReturningUser)
+    })(LoginForm)
 
-export default FormikReturningUser; 
+export default FormikLoginForm; 
