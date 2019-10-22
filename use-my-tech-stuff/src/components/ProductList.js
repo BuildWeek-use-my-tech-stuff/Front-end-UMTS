@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import ProductContext from "../contexts/ProductsContext";
 import Product from "./Product";
+import SearchForm from "./SearchForm";
 import axios from "axios";
 
 
 const ProductList = () => {
     const [products, setProducts] = useContext({ ProductContext });
     const [displayed, setDisplayed] = useState(products);
-    
 
 
     return (
