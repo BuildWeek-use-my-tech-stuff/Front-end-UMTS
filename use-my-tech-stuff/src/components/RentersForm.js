@@ -52,7 +52,7 @@ const handleSubmit = e => {
           {items.map(item => {
                     return (
                         <>
-                    <RentersEditForm item={item} key={item.id} />
+                    {/* <RentersEditForm item={item} key={item.id} /> */}
                     </>
                     )
                 })}
