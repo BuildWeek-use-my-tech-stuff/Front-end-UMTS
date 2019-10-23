@@ -10,7 +10,7 @@ const ProductList = ({ displayed }) => {
 
     return (
         <div className="product-list">
-            {displayed && displayed.map(product => <Product product={product} />)}
+            {displayed && displayed.map(product => <Product key={product.id} product={product} />)}
         </div>
     );
 };
