@@ -4,7 +4,7 @@ const SearchForm = ({ products, setDisplayed }) => {
     const [search, setSearch] = useState();
 
     useEffect(() => {
-        setDisplayed(products.filter(product => product.name.includes(search)));
+        setDisplayed(products.filter(product => product.item_name.toLowerCase().includes(search.toLowerCase())));
     }, [search]);
 
     const handleChanges = e => {
