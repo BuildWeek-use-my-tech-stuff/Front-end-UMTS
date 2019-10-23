@@ -37,7 +37,7 @@ function App(props) {
         setProducts(res.data);
       })
       .catch(err => console.log("Error fetching products:\n", err));
-  }, [user]);
+  }, []);
 
 
   return (
@@ -68,7 +68,7 @@ function App(props) {
 
               <Footer />
               <Route exact path="/" component={NewLogin} />
-              <Route path="create-account" component={Signup} />
+              <Route path="/create-account" component={Signup} />
               <PrivateRoute path="/shop/:id" component={Shop} />
               <PrivateRoute path="/dashboard" component={Dashboard} />
 
