@@ -29,6 +29,7 @@ function App(props) {
   const [myRentals, setMyRentals] = useState([]);
   const [user, setUser] = useState("");
   const [deleteItem, SetDeleteItem]=useState('')
+  const [isEditing, setIsEditing] = useState(false)
 
 
   useEffect(() => {
@@ -42,16 +43,21 @@ function App(props) {
 
   },[])
   
+  useEffect(() => {
+    axiosWithAuth()
+    .get(`/items`)
+    .then(res=> {
+      console.log("rentalsState", res.data)
+      setMyRentals(res.data)
+    })
+  }, [myRentals])
 
-  const removeItem = (id) => {
-    setProducts(products.filter(tech => tech.id !== id));
-  }
 
 
   return (
     <div className="App">
       <ProductsContext.Provider value={{ products, setProducts }}>
-        <MyRentalsContext.Provider value={{ products, setProducts, removeItem }}>
+        <MyRentalsContext.Provider value={{ products, setProducts,myRentals,setMyRentals, isEditing, setIsEditing}}>
           <SavedContext.Provider value={{ saved, setSaved }}>
             <UserContext.Provider value={{ user, setUser }}>
 

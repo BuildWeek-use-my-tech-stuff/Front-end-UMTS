@@ -8,13 +8,17 @@ import axios from 'axios'
 
 
 const Account = () => {
+    const {products, myRentals}=useContext(MyRentalsContext)
+    console.log('state of products', products)
 
-    const {products}=useContext(MyRentalsContext)
+
     const [rentersProducts,setRentersProducts]=useState([])
 
+
+      
     // useEffect(() => {
-    //     axios
-    //     .get(`http://localhost:5000/api/movies/`)
+    //     axiosWithAuth()
+    //     .get(`items/`)
     //     .then(res => {
     //       console.log("Products successfully fetched!\n", res.data);
     //       setRentersProducts(res.data);
@@ -23,34 +27,23 @@ const Account = () => {
     
     //   },[])
       
-    useEffect(() => {
-        axiosWithAuth()
-        .get(`items/`)
-        .then(res => {
-          console.log("Products successfully fetched!\n", res.data);
-          setRentersProducts(res.data);
-        })
-        .catch(err => console.log("Error fetching products:\n", err));
-    
-      },[])
-      
 
     return  ( 
         <div >
             <h1>Hello</h1>
             <div>
                 <NewRentersForm />
-                {rentersProducts.map(product => {
+                {myRentals.map(product => {
                     return (
                         <>
-                    <RentersDisplay key={products.id}  product={product}/>
+                    <RentersDisplay key={product.id}  product={product}/>
                     </>
                     )
                 })}
             </div>
         </div>
     //  ) : (
-    //      <div>You have no items to Rent</div>
+    //       <div>You have no items to Rent</div>
      )
 }
  

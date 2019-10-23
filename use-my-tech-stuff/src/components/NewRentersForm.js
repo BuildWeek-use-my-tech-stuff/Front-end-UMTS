@@ -6,13 +6,17 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 
 const NewRentersForm = () => {
 
-    const {removeItem,rentersProducts, setRentersProducts} = useContext(MyRentalsContext)
+    const {rentersProducts,products, setProducts} = useContext(MyRentalsContext)
+
+    const [updateProducts, setUpdateProducts] =useState('')
 
       const[newItem,setNewItem] =useState({
 		price: '',
         item_name: '',
         description: '',
-	})
+        // id:Math.random()*100000,
+    })
+    
 
  const handleSubmit =e => {
      e.preventDefault();
@@ -21,13 +25,19 @@ const NewRentersForm = () => {
         .post('/items',newItem)
         .then(res => {
         console.log("Products successfully fetched!\n", res.data);
-        setRentersProducts(res.data);
+        setProducts(res.data);
         })
         .catch(err => console.log("Error fetching products:\n", err));
-
-
- }
-
+ 
+    // axiosWithAuth()
+    //     .put(`/items/${id}`)
+    //     .then(res => {
+    //         console.log("Edit", res)
+    //         updateProducts(rentersProducts.map(newEdit => res.data.id === newEdit.id ? res.data : newEdit))
+    //         // setEditing(false)
+    //       })
+    //       .catch(err => console.log(err.response))
+      };
 
             
     const handleChange = e => {

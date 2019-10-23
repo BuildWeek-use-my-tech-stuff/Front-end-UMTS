@@ -5,9 +5,11 @@ import axios from 'axios'
 
 
 
-const RentersDisplay = ({product, match,setRentersProducts}) => {
+const RentersDisplay = ({product, match,setRentersProducts, products,setProduct, isEditing, setIsEditing}) => {
 
     const {removeItem,} = useContext(MyRentalsContext)
+
+   
 
 
     const [newProduct, setNewProduct]=('')
@@ -18,12 +20,12 @@ const RentersDisplay = ({product, match,setRentersProducts}) => {
                 .delete(`/items/${id}`)
                  .then(res => {
                 console.log(res)
-                // setRentersProducts(res.data)
+                setProduct(res.data)
             })
                 .catch(err => console.log(err))
         }
 
-
+        
     
 
     return (  
@@ -33,9 +35,7 @@ const RentersDisplay = ({product, match,setRentersProducts}) => {
             <h1>{product.price}</h1>
             <h1>{product.description}</h1>
             <button onClick={()=> deleteItems(product.id)}>Delete</button>
-            {/* <div className="price">{item.price}</div>
-            <button onClick={()=> removeTech(item.id)}>remove</button>
-            <button onClick={()=>editTech(item)}>Edit</button> */}
+            <button>Edit</button>
         </li>
     )
 }
