@@ -11,7 +11,7 @@ const AppWithRouter = withRouter(App);
 
 ReactDOM.render(
     <Router>
-        <App />
+        <AppWithRouter/>
     </Router>
     , document.getElementById('root'));
     

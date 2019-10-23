@@ -1,43 +1,42 @@
-import React,{createContext, useState} from 'react'
-import axios from 'axios'
+import React,{createContext, useState, useEffect} from 'react'
+import axiosWithAuth from '../utils/axiosWithAuth'
 
 export const MyRentalsContext = createContext();
 
 const TechContextProvider = (props) => {
-  const [items, setItems] = useState([
-    {title: 'Some tech item',  price: '$30',  id:1},
-    {title: 'More tech stuff', price: '$100', id:2},
-    {title: 'More tech stuff', price: '$100', id:3},
-    {title: 'More tech stuff', price: '$100', id:4},
-  ]);
+  const [items, setItems] = useState('');
 
   const [editing, setEditing] = useState(false)
 
 
-    axios
-    .get(`url`)
-    .then(res => {
-        console.log(res.data)
-        setItems(res.data)
-    .catch(err => console.log('error from get',err.response))
-})
+ 
+        // axiosWithAuth()
+        //     .get('/id/user-items',items)
+        //     .then(res =>{
+        //       console.log(res)
+        //       setItems(res.data)
+        //     } )
+            
+        //     .catch(err => console.log(err.response))
+   
 
 
 
-  const addTech = (title, price) => {
-    setItems([...items, {title: title, price: price, id: Math.random()*100000}]);
-  };
+
+  // const addTech = (title, price) => {
+  //   setItems([...items, {title: title, price: price, id: Math.random()*100000}]);
+  // };
 
 
-  const removeTech = (id) => {
-    setItems(items.filter(tech => tech.id !== id));
-  }
+  // const removeTech = (id) => {
+  //   setItems(items.filter(tech => tech.id !== id));
+  // }
 
 
-  const editTech =(id, updatedTech) => {
-    setEditing(true)
-    setItems(items.map(tech=> tech.id === id ?  updatedTech : tech ))
-  }
+  // const editTech =(id, updatedTech) => {
+  //   setEditing(true)
+  //   setItems(items.map(tech=> tech.id === id ?  updatedTech : tech ))
+  // }
 
   // const editTech = (item) => {
   //   setEditing(true)
@@ -45,7 +44,7 @@ const TechContextProvider = (props) => {
 
 
   return (
-    <MyRentalsContext.Provider value={{items, addTech, removeTech, editTech, setItems, editing, setEditing }}>
+    <MyRentalsContext.Provider value={{ }}>
       {props.children}
     </MyRentalsContext.Provider>
   );
