@@ -19,6 +19,7 @@ import Footer from './components/Footer'
 import Shop from './components/Shop'
 // import MyRentalsContext from './contexts/MyRentalsContext'
 import { UserContext } from "./contexts/UserContext";
+import Signup from './components/Signup';
 
 
 
@@ -28,14 +29,15 @@ function App(props) {
   const [myRentals, setMyRentals] = useState([]);
   const [user, setUser] = useState("");
 
-  axiosWithAuth()
-    .get('/items')
-    .then(res => {
-      console.log("Products successfully fetched!\n", res.data);
-      setProducts(res.data);
-    })
-    .catch(err => console.log("Error fetching products:\n", err));
-
+  useEffect(() => {
+    axiosWithAuth()
+      .get('/items')
+      .then(res => {
+        console.log("Products successfully fetched!\n", res.data);
+        setProducts(res.data);
+      })
+      .catch(err => console.log("Error fetching products:\n", err));
+  }, [user]);
 
 
   return (
@@ -66,6 +68,7 @@ function App(props) {
 
               <Footer />
               <Route exact path="/" component={NewLogin} />
+              <Route path="create-account" component={Signup} />
               <PrivateRoute path="/shop/:id" component={Shop} />
               <PrivateRoute path="/dashboard" component={Dashboard} />
 
