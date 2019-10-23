@@ -18,7 +18,8 @@ import { BrowserRouter as Router, withRouter } from "react-router-dom";
 import Footer from './components/Footer'
 import Shop from './components/Shop'
 // import MyRentalsContext from './contexts/MyRentalsContext'
-import { UserContext } from "./contexts/UserContext";
+
+import Signup from './components/Signup';
 import Account from './components/Account'
 
 
@@ -28,20 +29,20 @@ function App(props) {
   const [saved, setSaved] = useState([]);
   const [myRentals, setMyRentals] = useState([]);
   const [user, setUser] = useState("");
-  const [deleteItem, SetDeleteItem]=useState('')
+  const [deleteItem, SetDeleteItem] = useState('');
 
 
   useEffect(() => {
     axiosWithAuth()
-    .get('/items')
-    .then(res => {
-      console.log("Products successfully fetched!\n", res.data);
-      setProducts(res.data);
-    })
-    .catch(err => console.log("Error fetching products:\n", err));
+      .get('/items')
+      .then(res => {
+        console.log("Products successfully fetched!\n", res.data);
+        setProducts(res.data);
+      })
+      .catch(err => console.log("Error fetching products:\n", err));
 
-  },[])
-  
+  }, [])
+
 
   const removeItem = (id) => {
     setProducts(products.filter(tech => tech.id !== id));
@@ -53,15 +54,18 @@ function App(props) {
       <ProductsContext.Provider value={{ products, setProducts }}>
         <MyRentalsContext.Provider value={{ products, setProducts, removeItem }}>
           <SavedContext.Provider value={{ saved, setSaved }}>
-            <UserContext.Provider value={{ user, setUser }}>
 
-              <Footer />
-              <Route exact path="/" component={NewLogin} />
-              <Route path="/account" component={Account} />
-              {/* <PrivateRoute path="/shop/:id" component={Shop} />
+
+            <Footer />
+            <Route exact path="/" component={NewLogin} />
+            <Route path="/create-account" component={Signup} />
+            <PrivateRoute path="/shop/:id" component={Shop} />
+            <PrivateRoute path="/dashboard" component={Dashboard} />
+            <Route path="/account" component={Account} />
+            {/* <PrivateRoute path="/shop/:id" component={Shop} />
               <PrivateRoute path="/dashboard" component={Dashboard} /> */}
 
-            </UserContext.Provider>
+
           </SavedContext.Provider>
         </MyRentalsContext.Provider>
       </ProductsContext.Provider>

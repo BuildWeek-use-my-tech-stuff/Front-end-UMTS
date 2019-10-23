@@ -18,20 +18,20 @@ const style = {
 }
 
 const phantom = {
-  display: 'block',
-  padding: '20px',
-  height: '30px',
-  width: '100%',
+    display: 'block',
+    padding: '20px',
+    height: '30px',
+    width: '100%',
 }
 
 function Footer() {
     return (
-    <div>
-     
-        <NavLink to="/">Log In</NavLink>
-        <NavLink to="/DashItems">Create Account</NavLink>
+        <div>
 
-    </div>
+            <NavLink to="/">Log In</NavLink>
+            <NavLink to="/create-account">Create Account</NavLink>
+
+        </div>
     )
 }
 
