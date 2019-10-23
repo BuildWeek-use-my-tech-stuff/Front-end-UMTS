@@ -18,8 +18,9 @@ import { BrowserRouter as Router, withRouter } from "react-router-dom";
 import Footer from './components/Footer'
 import Shop from './components/Shop'
 // import MyRentalsContext from './contexts/MyRentalsContext'
-import { UserContext } from "./contexts/UserContext";
+
 import Signup from './components/Signup';
+import Account from './components/Account'
 
 
 
@@ -28,9 +29,10 @@ function App(props) {
   const [saved, setSaved] = useState([]);
   const [myRentals, setMyRentals] = useState([]);
   const [user, setUser] = useState("");
+  const [deleteItem, SetDeleteItem] = useState('');
+
 
   useEffect(() => {
-    console.log(user);
     axiosWithAuth()
       .get('/items')
       .then(res => {
@@ -38,42 +40,32 @@ function App(props) {
         setProducts(res.data);
       })
       .catch(err => console.log("Error fetching products:\n", err));
-  }, []);
+
+  }, [])
+
+
+  const removeItem = (id) => {
+    setProducts(products.filter(tech => tech.id !== id));
+  }
 
 
   return (
     <div className="App">
-      {/* <Router> */}
-      {/*<Footer />
-      <Route exact path="/" component={NewLogin} />
-      <Route path="/DashItems" component={DashItems} />
-      <Route path="/shop/:id" component={Shop} />*/}
-      {/* </Router> */}
-
-
-
-      {/* <Route
-        path="/movies/:id" render={props => {
-          return <Movie {...props} addToSavedList={addToSavedList} />;
-        }}
-      /> */}
-      {/* <Route path ="/CreateAccount" component={Forms} /> */}
-      {/* <TechContextProvider>
-        <RentersList />
-        <RentersForm />
-      </TechContextProvider> */}
       <ProductsContext.Provider value={{ products, setProducts }}>
-        <MyRentalsContext.Provider value={{ myRentals, setMyRentals }}>
+        <MyRentalsContext.Provider value={{ products, setProducts, removeItem }}>
           <SavedContext.Provider value={{ saved, setSaved }}>
-            <UserContext.Provider value={{ user, setUser }}>
 
-              <Footer />
-              <Route exact path="/" component={NewLogin} />
-              <Route path="/create-account" component={Signup} />
-              <PrivateRoute path="/shop/:id" component={Shop} />
-              <PrivateRoute path="/dashboard" component={Dashboard} />
 
-            </UserContext.Provider>
+            <Footer />
+            <Route exact path="/" component={NewLogin} />
+            <Route path="/create-account" component={Signup} />
+            <PrivateRoute path="/shop/:id" component={Shop} />
+            <PrivateRoute path="/dashboard" component={Dashboard} />
+            <Route path="/account" component={Account} />
+            {/* <PrivateRoute path="/shop/:id" component={Shop} />
+              <PrivateRoute path="/dashboard" component={Dashboard} /> */}
+
+
           </SavedContext.Provider>
         </MyRentalsContext.Provider>
       </ProductsContext.Provider>

@@ -11,7 +11,8 @@ const Shop = ({match}) => {
 
     useEffect(() => {
        
-      axiosWithAuth().get(`/items/${match.params.id}`)
+      axiosWithAuth()
+      .get(`/items/${match.params.id}`)
         .then( res =>{
            setItem(res.data)
         console.log(res.data)
@@ -20,10 +21,22 @@ const Shop = ({match}) => {
     }, [match.params.id])
   
 
+    // useEffect(() => {
+       
+    //   axiosWithAuth().delete(`/items/${match.params.id}`)
+    //     .then( res =>{
+    //        setItem(res.data)
+    //     console.log(res.data)
+    //     })
+    //     .catch( err => console.log(err));
+    // }, [match.params.id])
+  
 
-  // const removeTech = (id) => {
-  //   setItems(items.filter(tech => tech.id !== id));
-  // }
+
+
+  const removeTech = (id) => {
+    setItem(item.filter(tech => tech.id !== id.id));
+  }
 
 
     return ( 
@@ -31,7 +44,7 @@ const Shop = ({match}) => {
            <p>${item.price}</p>
            <p>{item.item_name}</p>
            <p>{item.description}</p>
-            <button>Delete</button>
+           <button onClick={()=> removeTech(item.id)}></button>
         </div>
      );
 }
