@@ -7,7 +7,7 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 import { UserContext } from "../contexts/UserContext";
 
 const Signup = (props) => {
-    const { setUser } = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
 
     const [newUser, setNewUser] = useState({
         username: "",

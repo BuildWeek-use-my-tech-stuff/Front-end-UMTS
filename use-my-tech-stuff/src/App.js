@@ -30,6 +30,7 @@ function App(props) {
   const [user, setUser] = useState("");
 
   useEffect(() => {
+    console.log(user);
     axiosWithAuth()
       .get('/items')
       .then(res => {
