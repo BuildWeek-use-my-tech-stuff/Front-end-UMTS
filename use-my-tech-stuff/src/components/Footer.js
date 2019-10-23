@@ -1,8 +1,5 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import { BrowserRouter, Route, Link } from "react-router-dom";
-import ReturningUser from "./LoginForm";
-import NewUser from "./SignUpForm";
 
 function Footer() {
     return (
@@ -15,7 +12,7 @@ function Footer() {
         <Route path="/Form" component={NewUser}/> */}
         <NavLink to="/Home">Home</NavLink>
         <NavLink to="/About">About</NavLink>
-        <NavLink to="/Dashboard">Rentals</NavLink>
+        <NavLink to="/ProductCard">Rentals</NavLink>
         <NavLink to="/">Log In</NavLink>
         <NavLink to="/CreateAccount">Create Account</NavLink>
     {/* // </BrowserRouter> */}

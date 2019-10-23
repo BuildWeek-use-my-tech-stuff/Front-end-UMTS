@@ -40,6 +40,7 @@ const NewSignUp = (props) => {
                 placeholder='Create Username'  
                 value={credentials.username}
                 onChange={handleChanges}
+                required
                 />
                 <input  className="emailForm"
                 type='text'
@@ -47,6 +48,7 @@ const NewSignUp = (props) => {
                 placeholder='E-Mail Address'  
                 value={credentials.email}
                 onChange={handleChanges}
+                required
                 />
                 <input  className="phoneForm"
                 type='text'
@@ -54,6 +56,7 @@ const NewSignUp = (props) => {
                 placeholder='Phone Number'  
                 value={credentials.phone}
                 onChange={handleChanges}
+                required
                 />
                 <input  className="passwordForm"
                 type='password'
@@ -61,6 +64,7 @@ const NewSignUp = (props) => {
                 placeholder='Create Password'  
                 value={credentials.password}
                 onChange={handleChanges}
+                required
                 />
                 <button type='submit' className="subButton">Sign Up!</button>
             </form>

@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import axiosWithAuth from '../utils/axiosWithAuth'
 import Header from './Header';
 import Footer from './Footer';
+import ProductCard from './ProductCard';
 
 const LoginForm = (props) => {
     const [credentials, setCredentials] = useState({
@@ -47,6 +48,8 @@ const LoginForm = (props) => {
                 />
                 <button type='submit' className="subButton">Login</button>
             </form>
+
+
 
             <Footer />
 

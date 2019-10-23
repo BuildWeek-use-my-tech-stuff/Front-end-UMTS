@@ -6,6 +6,10 @@
   height: 40vmin;
 }
 
+p {
+  font-family: 'Roboto', sans-serif;
+}
+
 .App-header {
   background-color: #5ab9ea;
   height: 100px;
@@ -25,6 +29,7 @@
   margin: 25px 0px 25px 50px;
   font-size: 1.25rem;
   text-decoration: none;
+  font-family: 'Roboto', sans-serif;
 }
 
 .App-header a:hover {
@@ -140,8 +145,9 @@ body {
 .footerNav a {
   color: white;
   margin-top: 50px;
-  padding: 0 10px;
+  padding: 0 65px;
   text-decoration: none;
+  font-family: 'Roboto', sans-serif;
 }
 
 .footerNav a:hover {
@@ -151,4 +157,27 @@ body {
 
 .item-list{
   list-style-type: none;
+}
+
+.productContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.productCard {
+  border: 4px solid #84ceeb;
+  border-radius: 10%;
+  width: 400px;
+  height: 500px;
+  margin: 0 0 33px 0;
+}
+
+.createAccButton {
+  color: black;
+}
+
+.createAccButton:hover {
+  color: #8860D0;
+  transition: 1.0s;
 }

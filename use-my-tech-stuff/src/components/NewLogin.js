@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import axiosWithAuth from '../utils/axiosWithAuth'
 import Header from './Header';
 import Footer from './Footer';
+import {NavLink} from 'react-router-dom';
 
 const LoginForm = (props) => {
     const [credentials, setCredentials] = useState({
@@ -37,6 +38,7 @@ const LoginForm = (props) => {
                 placeholder='Username'  
                 value={credentials.username}
                 onChange={handleChanges}
+                required
                 />
                 <input  className="passwordForm"
                 type='password'
@@ -44,9 +46,14 @@ const LoginForm = (props) => {
                 placeholder='Password'  
                 value={credentials.password}
                 onChange={handleChanges}
+                required
                 />
                 <button type='submit' className="subButton">Login</button>
             </form>
+
+            <p>Don't have an account? Create one today!</p>
+
+            <NavLink to="/CreateAccount" className="createAccButton">Create Account</NavLink>
 
             <Footer />
 

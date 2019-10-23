@@ -12,6 +12,7 @@ import Forms from './components/SignUpForm'
 // import LoginForm from './components/LoginForm'
 import NewLogin from './components/NewLogin';
 import NewSignUp from './components/NewSignUp';
+import ProductCard from './components/ProductCard';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
 
       <Route exact path ="/" component={NewLogin} />
       <Route path ="/CreateAccount" component={NewSignUp} />
+      <Route path ="/ProductCard" component={ProductCard} />
       {/* <TechContextProvider>
         <RentersList />
         <RentersForm />
