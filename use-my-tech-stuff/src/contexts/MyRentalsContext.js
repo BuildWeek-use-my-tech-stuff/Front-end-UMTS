@@ -1,12 +1,15 @@
 import React,{createContext, useState, useEffect} from 'react'
-import axiosWithAuth from '../utils/axiosWithAuth'
 
 export const MyRentalsContext = createContext();
 
-const TechContextProvider = (props) => {
-  const [items, setItems] = useState('');
 
-  const [editing, setEditing] = useState(false)
+
+
+
+// const TechContextProvider = (props) => {
+//   const [items, setItems] = useState('');
+
+//   const [editing, setEditing] = useState(false)
 
 
  
@@ -43,11 +46,11 @@ const TechContextProvider = (props) => {
   // }
 
 
-  return (
-    <MyRentalsContext.Provider value={{ }}>
-      {props.children}
-    </MyRentalsContext.Provider>
-  );
-}
+//   return (
+//     <MyRentalsContext.Provider value={{ }}>
+//       {props.children}
+//     </MyRentalsContext.Provider>
+//   );
+// }
  
-export default TechContextProvider;
+// export default TechContextProvider;

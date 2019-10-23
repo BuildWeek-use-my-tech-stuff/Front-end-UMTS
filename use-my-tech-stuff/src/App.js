@@ -36,24 +36,14 @@ function App(props) {
     //   .catch(err => console.log("Error fetching products:\n", err));
 
 
-  //   useEffect(() => {
-  //     const item = props.match.params.id
-  //   axios.get(`http://localhost:5000/api/movies/${item}`)
-  //     // console.log(props.match.params.id)
-  //     // .then( res =>setUpdated(res.data))
-  //     .catch( err => console.log(err));
-  // }, [props.match.params.id])
-
-
 
   return (
     <div className="App">
-      {/* <Router> */}
-      <Footer />
+       <Footer />
         <Route exact path ="/" component={NewLogin} />
-        <Route path="/DashItems" component={DashItems}/>
+        <PrivateRoute path="/DashItems" component={DashItems}/>
         <Route path="/shop/:id" component={Shop} />
-     {/* </Router> */}
+
 
 
 
