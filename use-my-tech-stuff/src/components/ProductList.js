@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react";
-import ProductContext from "../contexts/ProductsContext";
+import {ProductsContext} from "../contexts/ProductsContext";
 import Product from "./Product";
 import axios from "axios";
 
 
 const ProductList = () => {
-    const [products, setProducts] = useContext({ ProductContext });
+    const [products, setProducts] = useContext({ ProductsContext });
 
 
     return (

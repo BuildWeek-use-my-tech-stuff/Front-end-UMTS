@@ -1,13 +1,13 @@
-import React,{useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import TechContextProvider from './contexts/MyRentalsContext'
 import RentersList from './components/RentersList';
 import RentersForm from './components/RentersForm';
 import { Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
-import ProductsContext from './contexts/ProductsContext';
-import MyRentalsContext from './contexts/MyRentalsContext';
-import SavedContext from './contexts/SavedContext';
+import { ProductsContext } from './contexts/ProductsContext';
+import { MyRentalsContext } from './contexts/MyRentalsContext';
+import { SavedContext } from './contexts/SavedContext';
 import Forms from './components/SignUpForm'
 import NewLogin from './components/NewLogin';
 import axiosWithAuth from './utils/axiosWithAuth';
@@ -18,42 +18,34 @@ import { BrowserRouter as Router, withRouter } from "react-router-dom";
 import Footer from './components/Footer'
 import Shop from './components/Shop'
 // import MyRentalsContext from './contexts/MyRentalsContext'
+import { UserContext } from "./contexts/UserContext";
 
 
 
 function App(props) {
-  // const [products, setProducts] = useState();
-  // const [saved, setSaved] = useState();
-  // const [myRentals, setMyRentals] = useState();
+  const [products, setProducts] = useState([]);
+  const [saved, setSaved] = useState([]);
+  const [myRentals, setMyRentals] = useState([]);
+  const [user, setUser] = useState("");
 
-
-    // axiosWithAuth()
-    //   .get('/id/user-items', products)
-    //   .then(res => {
-    //     console.log("Products successfully fetched!\n", res.data);
-    //     setProducts(res.data);
-    //   })
-    //   .catch(err => console.log("Error fetching products:\n", err));
-
-
-  //   useEffect(() => {
-  //     const item = props.match.params.id
-  //   axios.get(`http://localhost:5000/api/movies/${item}`)
-  //     // console.log(props.match.params.id)
-  //     // .then( res =>setUpdated(res.data))
-  //     .catch( err => console.log(err));
-  // }, [props.match.params.id])
+  axiosWithAuth()
+    .get('/items')
+    .then(res => {
+      console.log("Products successfully fetched!\n", res.data);
+      setProducts(res.data);
+    })
+    .catch(err => console.log("Error fetching products:\n", err));
 
 
 
   return (
     <div className="App">
       {/* <Router> */}
-      <Footer />
-        <Route exact path ="/" component={NewLogin} />
-        <Route path="/DashItems" component={DashItems}/>
-        <Route path="/shop/:id" component={Shop} />
-     {/* </Router> */}
+      {/*<Footer />
+      <Route exact path="/" component={NewLogin} />
+      <Route path="/DashItems" component={DashItems} />
+      <Route path="/shop/:id" component={Shop} />*/}
+      {/* </Router> */}
 
 
 
@@ -67,16 +59,23 @@ function App(props) {
         <RentersList />
         <RentersForm />
       </TechContextProvider> */}
-      {/* <ProductsContext.Provider value={{ products, setProducts }}>
+      <ProductsContext.Provider value={{ products, setProducts }}>
         <MyRentalsContext.Provider value={{ myRentals, setMyRentals }}>
           <SavedContext.Provider value={{ saved, setSaved }}>
-            <Dashboard />
+            <UserContext.Provider value={{ user, setUser }}>
+
+              <Footer />
+              <Route exact path="/" component={NewLogin} />
+              <PrivateRoute path="/shop/:id" component={Shop} />
+              <PrivateRoute path="/dashboard" component={Dashboard} />
+
+            </UserContext.Provider>
           </SavedContext.Provider>
         </MyRentalsContext.Provider>
-      </ProductsContext.Provider> */}
+      </ProductsContext.Provider>
 
     </div>
   );
-}
+};
 
 export default App;
