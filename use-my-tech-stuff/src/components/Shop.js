@@ -11,7 +11,8 @@ const Shop = ({match}) => {
 
     useEffect(() => {
        
-      axiosWithAuth().get(`/items/${match.params.id}`)
+      axiosWithAuth()
+      .get(`/items/${match.params.id}`)
         .then( res =>{
            setItem(res.data)
         console.log(res.data)
@@ -31,7 +32,7 @@ const Shop = ({match}) => {
     // }, [match.params.id])
   
 
-    
+
 
   const removeTech = (id) => {
     setItem(item.filter(tech => tech.id !== id.id));

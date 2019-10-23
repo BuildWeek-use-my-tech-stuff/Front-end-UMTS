@@ -1,18 +1,41 @@
-import React,{useContext} from 'react'
-import { TechContext, MyRentalsContext } from '../contexts/MyRentalsContext';
+import React,{useContext, useEffect,} from 'react'
+import { MyRentalsContext } from '../contexts/MyRentalsContext';
+import axiosWithAuth from '../utils/axiosWithAuth'
+import axios from 'axios'
 
 
 
-const RentersDisplay = ({item,editing}) => {
+const RentersDisplay = ({product, match,setRentersProducts}) => {
 
-    const {removeTech, editTech} = useContext(MyRentalsContext)
+    const {removeItem,} = useContext(MyRentalsContext)
+
+
+    const [newProduct, setNewProduct]=('')
+
+ 
+        const deleteItems = (id) => {
+                axiosWithAuth()
+                .delete(`/items/${id}`)
+                 .then(res => {
+                console.log(res)
+                // setRentersProducts(res.data)
+            })
+                .catch(err => console.log(err))
+        }
+
+
+    
 
     return (  
         <li className="item-list">
-            <div className="title">{item.title}</div>
-            <div className="price">{item.price}</div>
+
+            <div className="title">{product.item_name}</div>
+            <h1>{product.price}</h1>
+            <h1>{product.description}</h1>
+            <button onClick={()=> deleteItems(product.id)}>Delete</button>
+            {/* <div className="price">{item.price}</div>
             <button onClick={()=> removeTech(item.id)}>remove</button>
-            <button onClick={()=>editTech(item)}>Edit</button>
+            <button onClick={()=>editTech(item)}>Edit</button> */}
         </li>
     )
 }
