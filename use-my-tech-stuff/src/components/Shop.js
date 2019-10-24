@@ -4,6 +4,9 @@ import { UserContext } from "../contexts/UserContext";
 import Toggle from 'react-toggle'
 
 const Shop = ({ match, product}) => {
+
+   const [toggle, setToggle]= useState(true)
+
   const [item, setItem] = useState({
     price: '',
     item_name: '',
@@ -38,7 +41,8 @@ const Shop = ({ match, product}) => {
       <p>{item.description}</p>
       <label >
        Availablility
-       <Toggle />
+       <Toggle defaultChecked={toggle}
+       />
            
      </label>
     </div>

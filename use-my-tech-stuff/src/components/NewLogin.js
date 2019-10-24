@@ -20,7 +20,7 @@ const NewLogin = (props) => {
     axiosWithAuth().post("/auth/login", credentials)
         .then(res => {
             localStorage.setItem('token', res.data.token)
-            props.history.push("/account")    
+            props.history.push("/dashboard")    
         })
         .catch(err => console.log(err.response))
 }

@@ -16,15 +16,15 @@ const NewSignUp = (props) => {
         [e.target.name]: e.target.value
     })
 }
-//   const handleSubmit = e => {
-//     e.preventDefault();
-//     axiosWithAuth().post("/auth/login", credentials)
-//         .then(res => {
-//             localStorage.setItem('token', res.data.token)
-//             props.history.push("/CreateAccount")    
-//         })
-//         .catch(err => console.log(err.response))
-// }
+  const handleSubmit = e => {
+    e.preventDefault();
+    axiosWithAuth().post("/auth/login", credentials)
+        .then(res => {
+            localStorage.setItem('token', res.data.token)
+            props.history.push("/")    
+        })
+        .catch(err => console.log(err.response))
+}
     return ( 
         <div className="signUpForm">
 
