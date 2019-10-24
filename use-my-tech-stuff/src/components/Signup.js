@@ -32,7 +32,7 @@ const Signup = (props) => {
                 console.log(res.data);
                 localStorage.setItem("token", res.data.token);
                 props.history.push("/dashboard");
-                setUser(res.data);
+                setUser(res.data.id);
             })
             .catch(err => console.log("Error creating account.\n", err));
     }
