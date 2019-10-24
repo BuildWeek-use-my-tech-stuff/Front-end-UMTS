@@ -95,41 +95,60 @@ import RentersForm from './RentersForm'
 import NewRentersForm from './NewRentersForm'
 import axios from 'axios'
 const Account = () => {
-    const {products, myRentals}=useContext(MyRentalsContext)
+    const { products, myRentals } = useContext(MyRentalsContext)
     // const [rentersProducts,setRentersProducts]=useState([])
-    const [isEditing, setIsEditing]=useState(false)
-    const[editProduct, setEditProduct]=useState()
-      
+    const [isEditing, setIsEditing] = useState(false)
+    const [editProduct, setEditProduct] = useState({});
+
     // const editMe =(product) => {
-       
+
     // }
- 
-   
-    return myRentals.length ?(
+
+
+    return myRentals.length ? (
         <div >
             <h1>Your Rentals</h1>
-            <div>
-                {/* <div className="accountContainer"> */}
+            {<NewRentersForm
+                product={editProduct}
+                isEditing={isEditing}
+                setIsEditing={setIsEditing}
+                price={editProduct.price}
+                name={editProduct.item_name}
+                editId={editProduct.id}
+            />}
+            <div className="accountContainer">
                 {myRentals.map(product => {
                     return (
                         <>
-                    <NewRentersForm isEditing={isEditing} setIsEditing={setIsEditing} price={product.price} name={product.item_name} editId={product.id} />
-                    <RentersDisplay key={product.id}  product={product}  setIsEditing={setIsEditing} isEditing={isEditing} />
-                    <button className="rentalEditButton">Test</button>
-                    </>
+                            {/*<NewRentersForm
+
+                                isEditing={isEditing}
+                                setIsEditing={setIsEditing}
+                                price={product.price}
+                                name={product.item_name}
+                                editId={product.id}
+                            />*/}
+                            <RentersDisplay
+                                setEditProduct={setEditProduct}
+                                key={product.id}
+                                product={product}
+                                setIsEditing={setIsEditing}
+                                isEditing={isEditing} />
+                            
+                        </>
                     )
                 })}
                 {/* </div> */}
             </div>
-            
+
         </div>
-    ):(
-        <>
-        <h1>No items for rent</h1>
-        <NewRentersForm />
-        </>
-       
-    )
+    ) : (
+            <>
+                <h1>No items for rent</h1>
+                <NewRentersForm />
+            </>
+
+        )
 }
 
 export default Account;

@@ -242,16 +242,12 @@ transition: 1s;
   transition: all 0.75s;
 }
 
-/* .bigAccountContainer {
-  display: flex;
-} */
-
 .accountContainer {
   display: flex;
   flex-wrap: wrap;
-  width: 1100px;
+  width: 1000px;
   justify-content: center;
-  margin: 50px 0 0 12%;
+  margin: 0 0 0 15%;
 }
 
 .item-container {
@@ -259,7 +255,7 @@ transition: 1s;
   border-radius: 10%;
   margin: 15px 15px;
   width: 282px;
-  height: 315px;
+  height: 400px;
 }
 
 .item-list{
@@ -307,18 +303,29 @@ transition: 1s;
   height: 315px;
 }
 
+.product img {
+  width: 100px;
+  height: 100px;
+  margin: 50px 0 0 0;
+}
+
 .rentalEditButton {
   background-color: #F2F2F2;
   margin: 0 0 0 20px;
   border: none;
   border-radius: 100%;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   font-size: 1.0rem;
 }
 
 .rentalEditButton:hover {
-  height: 100px;
-  width: 100px;
+  height: 75px;
+  width: 75px;
   transition: all 0.75s;
+}
+
+.imgStyle {
+  width: 100px;
+  height: 50px;
 }

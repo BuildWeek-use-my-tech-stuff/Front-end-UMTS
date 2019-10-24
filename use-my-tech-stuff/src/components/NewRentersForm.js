@@ -3,69 +3,73 @@ import axios from 'axios'
 import { MyRentalsContext } from '../contexts/MyRentalsContext';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import Product from './Product';
-const NewRentersForm = ({isEditing,setIsEditing,product, name, price,editId},props) => {
-    const {rentersProducts,products,setMyRentals, setProducts,isEdit, } = useContext(MyRentalsContext)
-    const[newItem,setNewItem] =useState({
-        price: '',
-        item_name: '',
-        description: '',
-        photo: '',
-        available: true, 
-        user_id: '',
-    })
-    useEffect(()=> {
-        if(isEditing) {
+const NewRentersForm = ({ isEditing, setIsEditing, product, name, price, editId }, props) => {
+    const { rentersProducts, products, setMyRentals, setProducts, isEdit, } = useContext(MyRentalsContext)
+    const [newItem, setNewItem] = useState(
+        isEditing
+            ? product
+            : {
+                price: '',
+                item_name: '',
+                description: '',
+                photo: '',
+                available: true,
+                user_id: '',
+            });
+
+
+    useEffect(() => {
+        if (isEditing) {
             setNewItem({
                 item_name: name,
                 price: price,
                 description: 'those'
             })
-        }else{
-            setNewItem( {price:'', item_name: '',description: ''})  
-        }  
-    },[isEditing])
-       
-     
- const handleSubmit =e => {
-     e.preventDefault();
-     if(isEditing){
-         axiosWithAuth()
-          .put(`/items/${editId}`,newItem)
-        //  .put(`/${2}/user_items`,newItem)
-         .then(res => {
-             console.log(`hey I'm editing over here`)
-             setProducts(res.data)
-             setNewItem({
+        } else {
+            setNewItem({ price: '', item_name: '', description: '' })
+        }
+    }, [isEditing])
+
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        if (isEditing) {
+            axiosWithAuth()
+                .put(`/items/${editId}`, newItem)
+                //  .put(`/${2}/user_items`,newItem)
+                .then(res => {
+                    console.log(`hey I'm editing over here`)
+                    setMyRentals(res.data)
+                    setNewItem({
+                        item_name: '',
+                        price: '',
+                        description: ''
+                    })
+                    setIsEditing(false)
+                })
+        } else {
+            axiosWithAuth()
+                .post('/items', newItem)
+                // .post(`users/${1}/user-items`,newItem)
+                .then(res => {
+                    console.log("Products successfully fetched!\n", res.data);
+                    setProducts(res.data);
+                })
+                .catch(err => console.log("Error fetching products:\n", err));
+            setNewItem({
                 item_name: '',
                 price: '',
                 description: ''
             })
-            setIsEditing(false)
-         })
-     }else{
-        axiosWithAuth()
-        .post('/items',newItem)
-        // .post(`users/${1}/user-items`,newItem)
-        .then(res => {
-        console.log("Products successfully fetched!\n", res.data);
-        setProducts(res.data);
-        })
-        .catch(err => console.log("Error fetching products:\n", err));
-        setNewItem({
-            item_name: '',
-            price: '',
-            description: ''
-        })
-    }
- 
-      };
+        }
+
+    };
     const handleChange = e => {
         setNewItem({
             ...newItem,
             [e.target.name]: e.target.value
         })
     }
-    
     const handleFile = e => {
         console.log(e.target.file)
     }
