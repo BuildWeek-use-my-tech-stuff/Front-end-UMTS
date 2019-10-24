@@ -19,14 +19,14 @@ const Account = () => {
     return myRentals.length ? (
         <div >
             <h1>Your Rentals</h1>
-            {<NewRentersForm
+            <NewRentersForm
                 product={editProduct}
                 isEditing={isEditing}
                 setIsEditing={setIsEditing}
                 price={editProduct.price}
                 name={editProduct.item_name}
                 editId={editProduct.id}
-            />}
+            />
             <div>
                 {myRentals.map(product => {
                     return (
