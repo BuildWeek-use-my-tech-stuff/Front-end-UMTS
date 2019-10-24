@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const SearchForm = ({ products, setDisplayed }) => {
-    const [search, setSearch] = useState();
+    const [search, setSearch] = useState("");
 
     useEffect(() => {
         setDisplayed(products.filter(product => product.item_name.toLowerCase().includes(search.toLowerCase())));
