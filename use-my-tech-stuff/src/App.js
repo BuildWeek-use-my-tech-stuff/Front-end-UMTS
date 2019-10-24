@@ -21,6 +21,7 @@ import Shop from './components/Shop'
 
 import Signup from './components/Signup';
 import Account from './components/Account'
+import { UserContext } from './contexts/UserContext';
 
 
 
@@ -32,6 +33,10 @@ function App(props) {
   const [deleteItem, SetDeleteItem] = useState('');
 
 
+  // useEffect(() => {
+  //   console.log("User:\n", user);
+  // }, [user]);
+
   useEffect(() => {
     axiosWithAuth()
       .get('/items')
@@ -41,7 +46,7 @@ function App(props) {
       })
       .catch(err => console.log("Error fetching products:\n", err));
 
-  }, [])
+  }, []);
 
 
   const removeItem = (id) => {
@@ -54,23 +59,23 @@ function App(props) {
       <ProductsContext.Provider value={{ products, setProducts }}>
         <MyRentalsContext.Provider value={{ products, setProducts, removeItem }}>
           <SavedContext.Provider value={{ saved, setSaved }}>
+            <UserContext.Provider value={{ user, setUser }}>
 
-
-            <Footer />
-            <Route exact path="/" component={NewLogin} />
-            <Route path="/create-account" component={Signup} />
-            <PrivateRoute path="/shop/:id" component={Shop} />
-            <PrivateRoute path="/dashboard" component={Dashboard} />
-            <Route path="/account" component={Account} />
-            {/* <PrivateRoute path="/shop/:id" component={Shop} />
+              <Footer />
+              <Route exact path="/" component={NewLogin} />
+              <Route path="/create-account" component={Signup} />
+              <PrivateRoute path="/shop/:id" component={Shop} />
+              <PrivateRoute path="/dashboard" component={Dashboard} />
+              <Route path="/account" component={Account} />
+              {/* <PrivateRoute path="/shop/:id" component={Shop} />
               <PrivateRoute path="/dashboard" component={Dashboard} /> */}
 
-
+            </UserContext.Provider>
           </SavedContext.Provider>
         </MyRentalsContext.Provider>
       </ProductsContext.Provider>
 
-    </div>
+    </div >
   );
 };
 
