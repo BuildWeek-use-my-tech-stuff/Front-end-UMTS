@@ -10,7 +10,13 @@ import NewLogin from './components/NewLogin';
 import axiosWithAuth from './utils/axiosWithAuth';
 import Footer from './components/Footer'
 import { UserContext } from "./contexts/UserContext";
+import Shop from './components/Shop'
+import PrivateRoute from './components/PrivateRoute'
+// import MyRentalsContext from './contexts/MyRentalsContext'
+
+import Signup from './components/Signup';
 import Account from './components/Account'
+// import { UserContext } from './contexts/UserContext';
 
 
 
@@ -19,12 +25,15 @@ function App(props) {
   const [saved, setSaved] = useState([]);
   const [myRentals, setMyRentals] = useState([]);
   const [user, setUser] = useState("");
-  const [deleteItem, SetDeleteItem]=useState('')
-  
+  const [deleteItem, SetDeleteItem] = useState('');
 
+
+  // useEffect(() => {
+  //   console.log("User:\n", user);
+  // }, [user]);
 
   useEffect(() => {
-      axiosWithAuth()
+    axiosWithAuth()
       .get('/items')
       .then(res => {
         console.log("Products successfully fetched!\n", res.data);
@@ -56,6 +65,9 @@ function App(props) {
 
               <Footer />
               <Route exact path="/" component={NewLogin} />
+              <Route path="/create-account" component={Signup} />
+              <PrivateRoute path="/shop/:id" component={Shop} />
+              <PrivateRoute path="/dashboard" component={Dashboard} />
               <Route path="/account" component={Account} />
               {/* <PrivateRoute path="/shop/:id" component={Shop} />
               <PrivateRoute path="/dashboard" component={Dashboard} /> */}
@@ -65,7 +77,7 @@ function App(props) {
         </MyRentalsContext.Provider>
       </ProductsContext.Provider>
 
-    </div>
+    </div >
   );
 };
 

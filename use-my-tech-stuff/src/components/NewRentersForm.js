@@ -1,4 +1,4 @@
-import React,{useEffect,useState,useContext} from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 import { MyRentalsContext } from '../contexts/MyRentalsContext';
 import axiosWithAuth from '../utils/axiosWithAuth';
@@ -71,7 +71,6 @@ const NewRentersForm = ({isEditing,setIsEditing,product, name, price,editId},pro
  
       };
 
-            
     const handleChange = e => {
         setNewItem({
             ...newItem,
@@ -84,7 +83,7 @@ const NewRentersForm = ({isEditing,setIsEditing,product, name, price,editId},pro
     }
 
 
-    return ( 
+    return (
         <form onSubmit={handleSubmit}>
         <input 
         type='text'
@@ -121,5 +120,5 @@ const NewRentersForm = ({isEditing,setIsEditing,product, name, price,editId},pro
 
      );
 }
- 
+
 export default NewRentersForm;

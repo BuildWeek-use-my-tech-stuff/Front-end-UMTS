@@ -1,6 +1,6 @@
-import React,{useState, useEffect, useContext} from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import axiosWithAuth from '../utils/axiosWithAuth'
-import {MyRentalsContext} from '../contexts/MyRentalsContext'
+import { MyRentalsContext } from '../contexts/MyRentalsContext'
 import RentersDisplay from '../components/RentersDisplay'
 import RentersForm from './RentersForm'
 import NewRentersForm from './NewRentersForm'
@@ -16,11 +16,13 @@ const Account = () => {
 
     const[editProduct, setEditProduct]=useState()
       
-    const editMe =(product) => {
+    // const editMe =(product) => {
        
-    }
-    
-    return myRentals.length? ( 
+    // }
+ 
+   
+
+    return myRentals.length ?(
         <div >
             <h1>Your Rentals</h1>
             <div>
@@ -29,7 +31,7 @@ const Account = () => {
                         <>
                     <NewRentersForm isEditing={isEditing} setIsEditing={setIsEditing} price={product.price} name={product.item_name} editId={product.id} />
                     <RentersDisplay key={product.id}  product={product}  setIsEditing={setIsEditing} isEditing={isEditing} />
-                    <button onClick={editMe(product)}>test</button>
+                    <button>test</button>
                     </>
                     )
                 })}
@@ -46,7 +48,6 @@ const Account = () => {
 }
 
 
-{/* <NewRentersForm isEditing={isEditing} setIsEditing={setIsEditing} price={product.price} name={product.item_name} editId={product.id} /> */}
 
  
 export default Account;
