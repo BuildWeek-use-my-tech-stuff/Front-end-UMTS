@@ -9,12 +9,14 @@ import axios from 'axios'
 
 const Account = () => {
     const {products, myRentals}=useContext(MyRentalsContext)
-    console.log('state of products', products)
+    // console.log('state of products', products)
 
 
     const [rentersProducts,setRentersProducts]=useState([])
 
+    // const [editingFriend, setEditingFriend]=useState()
 
+    const [isEditing, setIsEditing]=useState(false)
       
     // useEffect(() => {
     //     axiosWithAuth()
@@ -26,25 +28,30 @@ const Account = () => {
     //     .catch(err => console.log("Error fetching products:\n", err));
     
     //   },[])
-      
 
-    return  ( 
+
+    //   const editFriend = newItem => {
+    //       setEditingFriend(newItem)
+    //   }
+
+    return myRentals.length? ( 
         <div >
             <h1>Hello</h1>
             <div>
-                <NewRentersForm />
                 {myRentals.map(product => {
                     return (
                         <>
-                    <RentersDisplay key={product.id}  product={product}/>
+                     <NewRentersForm isEditing={isEditing} setIsEditing={setIsEditing} price={product.price} name={product.item_name} editId={product.id} />
+                    <RentersDisplay key={product.id}  product={product}  setIsEditing={setIsEditing} isEditing={isEditing} />
                     </>
                     )
                 })}
             </div>
         </div>
-    //  ) : (
-    //       <div>You have no items to Rent</div>
-     )
+    ):(
+        <h1>No items for rent</h1>
+       
+    )
 }
  
 export default Account;

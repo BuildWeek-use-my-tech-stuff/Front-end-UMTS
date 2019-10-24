@@ -1,15 +1,17 @@
-import React,{useContext, useEffect,} from 'react'
+import React,{useContext, useEffect,useState} from 'react'
 import { MyRentalsContext } from '../contexts/MyRentalsContext';
 import axiosWithAuth from '../utils/axiosWithAuth'
 import axios from 'axios'
+import NewRentersForm from './NewRentersForm';
 
 
 
-const RentersDisplay = ({product, match,setRentersProducts, products,setProduct, isEditing, setIsEditing}) => {
+
+const RentersDisplay = ({product, match,setRentersProducts, products,setProduct, setIsEditing, isEditing},props) => {
 
     const {removeItem,} = useContext(MyRentalsContext)
 
-   
+
 
 
     const [newProduct, setNewProduct]=('')
@@ -25,18 +27,23 @@ const RentersDisplay = ({product, match,setRentersProducts, products,setProduct,
                 .catch(err => console.log(err))
         }
 
-        
-    
+       
+  
 
-    return (  
+    return  ! isEditing ?  ( 
+        <>
         <li className="item-list">
-
-            <div className="title">{product.item_name}</div>
-            <h1>{product.price}</h1>
-            <h1>{product.description}</h1>
+            <h1>{product.item_name}</h1>
+            <h3>{product.price}</h3>
+            <h3>{product.description}</h3>
             <button onClick={()=> deleteItems(product.id)}>Delete</button>
-            <button>Edit</button>
+            <button onClick={()=> setIsEditing(true)}>Edit</button>
         </li>
+        </>
+    ):(
+        <>
+        <h1>now Editing</h1>
+        </>
     )
 }
  

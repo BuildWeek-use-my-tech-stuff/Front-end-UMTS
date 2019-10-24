@@ -29,19 +29,21 @@ function App(props) {
   const [myRentals, setMyRentals] = useState([]);
   const [user, setUser] = useState("");
   const [deleteItem, SetDeleteItem]=useState('')
+  
   const [isEditing, setIsEditing] = useState(false)
 
 
   useEffect(() => {
-    axiosWithAuth()
-    .get('/items')
-    .then(res => {
-      console.log("Products successfully fetched!\n", res.data);
-      setProducts(res.data);
-    })
-    .catch(err => console.log("Error fetching products:\n", err));
+      axiosWithAuth()
+      .get('/items')
+      .then(res => {
+        console.log("Products successfully fetched!\n", res.data);
+        setProducts(res.data);
+      })
+      .catch(err => console.log("Error fetching products:\n", err));
 
   },[])
+
   
   useEffect(() => {
     axiosWithAuth()
@@ -57,7 +59,7 @@ function App(props) {
   return (
     <div className="App">
       <ProductsContext.Provider value={{ products, setProducts }}>
-        <MyRentalsContext.Provider value={{ products, setProducts,myRentals,setMyRentals, isEditing, setIsEditing}}>
+        <MyRentalsContext.Provider value={{ products, setProducts,myRentals,setMyRentals,isEditing,setIsEditing}}>
           <SavedContext.Provider value={{ saved, setSaved }}>
             <UserContext.Provider value={{ user, setUser }}>
 

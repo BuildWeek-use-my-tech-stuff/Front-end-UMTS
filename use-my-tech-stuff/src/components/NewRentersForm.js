@@ -2,24 +2,52 @@ import React,{useEffect,useState,useContext} from 'react'
 import axios from 'axios'
 import { MyRentalsContext } from '../contexts/MyRentalsContext';
 import axiosWithAuth from '../utils/axiosWithAuth';
+import Product from './Product';
 
 
-const NewRentersForm = () => {
+const NewRentersForm = ({isEditing,setIsEditing, name, price,editId},props) => {
 
-    const {rentersProducts,products, setProducts} = useContext(MyRentalsContext)
+    const {rentersProducts,products, setProducts,isEdit, } = useContext(MyRentalsContext)
 
-    const [updateProducts, setUpdateProducts] =useState('')
-
-      const[newItem,setNewItem] =useState({
-		price: '',
+    const[newItem,setNewItem] =useState({
+        price: '',
         item_name: '',
         description: '',
-        // id:Math.random()*100000,
     })
-    
+
+
+
+    useEffect(()=> {
+        if(isEditing) {
+            setNewItem({
+                item_name: name,
+                price: price,
+                description: 'those'
+            })
+        }else{
+            setNewItem( {price:'', item_name: '',description: ''})  
+        }  
+    },[isEditing])
+
+       
+     
 
  const handleSubmit =e => {
      e.preventDefault();
+     if(isEditing){
+         axiosWithAuth()
+         .put(`/items/${editId}`,newItem)
+         .then(res => {
+             console.log(`hey I'm editing over here`)
+
+             setNewItem({
+                item_name: '',
+                price: '',
+                description: ''
+            })
+            setIsEditing(false)
+         })
+     }else{
 
         axiosWithAuth()
         .post('/items',newItem)
@@ -28,15 +56,14 @@ const NewRentersForm = () => {
         setProducts(res.data);
         })
         .catch(err => console.log("Error fetching products:\n", err));
+
+        setNewItem({
+            item_name: '',
+            price: '',
+            description: ''
+        })
+    }
  
-    // axiosWithAuth()
-    //     .put(`/items/${id}`)
-    //     .then(res => {
-    //         console.log("Edit", res)
-    //         updateProducts(rentersProducts.map(newEdit => res.data.id === newEdit.id ? res.data : newEdit))
-    //         // setEditing(false)
-    //       })
-    //       .catch(err => console.log(err.response))
       };
 
             
@@ -72,8 +99,8 @@ const NewRentersForm = () => {
         onChange={handleChange}
         value={newItem.description}
         />
-       
-        <button type='submit'>Add Item</button>
+        <button type='submit'>{isEditing ? 'submit edit': 'Add Item'}</button>
+        <button>Cancel</button>
     </form>
      );
 }
