@@ -15,4 +15,4 @@ const ProductList = ({ displayed }) => {
     );
 };
 
-export default ProductList;
+export default ProductList

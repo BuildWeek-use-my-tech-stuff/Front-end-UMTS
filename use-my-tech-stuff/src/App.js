@@ -13,11 +13,13 @@ import PrivateRoute from "./components/PrivateRoute";
 import { UserContext } from "./contexts/UserContext";
 
 import Shop from './components/Shop'
+// import PrivateRoute from './components/PrivateRoute'
 // import MyRentalsContext from './contexts/MyRentalsContext'
 
 import Signup from './components/Signup';
-
 import Account from './components/Account'
+import Product from './components/Product';
+import DashItems from './components/DashItems';
 // import { UserContext } from './contexts/UserContext';
 
 
@@ -28,19 +30,14 @@ function App(props) {
   const [myRentals, setMyRentals] = useState([]);
   const [user, setUser] = useState("");
 
-  const [deleteItem, SetDeleteItem] = useState('')
 
 
-  // const [deleteItem, SetDeleteItem] = useState('');
 
   // useEffect(() => {
   //   console.log("User:\n", user);
   // }, [user]);
 
   useEffect(() => {
-
-
-
     axiosWithAuth()
 
       .get('/items')
@@ -57,12 +54,11 @@ function App(props) {
   useEffect(() => {
     axiosWithAuth()
       .get(`/items`)
-      // .get(`users/${1}/user-items`)
       .then(res => {
         console.log("rentalsState", res.data)
         setMyRentals(res.data)
       })
-  }, [myRentals])
+  }, [ ])
 
 
 
@@ -79,8 +75,9 @@ function App(props) {
 
               <Footer />
               <Route exact path="/" component={NewLogin} />
+              <Route path="/test" component={DashItems} />
               <Route path="/create-account" component={Signup} />
-              <PrivateRoute path="/shop/:id" render={props => <Shop {...props} />} />
+              <Route path="/shop/:id" component={Shop} />
               <PrivateRoute path="/dashboard" component={Dashboard} />
               <Route path="/account" component={Account} />
               {/* <PrivateRoute path="/shop/:id" component={Shop} />

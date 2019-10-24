@@ -11,9 +11,10 @@ const Account = () => {
     const [isEditing, setIsEditing] = useState(false)
     const [editProduct, setEditProduct] = useState({});
 
-    // const editMe =(product) => {
-
-    // }
+    //  useEffect(() => { 
+    //     console.log("Products in Dashboard:\n", myRentals);
+    //     setDisplayed(products);
+    // }, [products]);
 
 
     return myRentals.length ? (
@@ -26,26 +27,19 @@ const Account = () => {
                 price={editProduct.price}
                 name={editProduct.item_name}
                 editId={editProduct.id}
-            />
+                description={editProduct.description}
+            />}
             <div>
                 {myRentals.map(product => {
                     return (
                         <>
-                            {/*<NewRentersForm
-
-                                isEditing={isEditing}
-                                setIsEditing={setIsEditing}
-                                price={product.price}
-                                name={product.item_name}
-                                editId={product.id}
-                            />*/}
+                    
                             <RentersDisplay
                                 setEditProduct={setEditProduct}
                                 key={product.id}
                                 product={product}
                                 setIsEditing={setIsEditing}
                                 isEditing={isEditing} />
-                            <button>test</button>
                         </>
                     )
                 })}
