@@ -3,7 +3,7 @@
     "name": "use-my-tech-stuff",
     "builds": [
         {
-            "src": "use-my-tech-stuff/src/app.js",
+            "src": "use-my-tech-stuff/src/index.js",
             "use": "@now/react"
         }
     ]
