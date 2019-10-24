@@ -1,23 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import TechContextProvider from './contexts/MyRentalsContext'
-import RentersList from './components/RentersList';
-import RentersForm from './components/RentersForm';
+
 import { Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import { ProductsContext } from './contexts/ProductsContext';
 import { MyRentalsContext } from './contexts/MyRentalsContext';
 import { SavedContext } from './contexts/SavedContext';
-import Forms from './components/SignUpForm'
 import NewLogin from './components/NewLogin';
 import axiosWithAuth from './utils/axiosWithAuth';
-import axios from 'axios'
-import PrivateRoute from './components/PrivateRoute'
-import DashItems from './components/DashItems'
-import { BrowserRouter as Router, withRouter } from "react-router-dom";
 import Footer from './components/Footer'
-import Shop from './components/Shop'
-// import MyRentalsContext from './contexts/MyRentalsContext'
 import { UserContext } from "./contexts/UserContext";
 import Account from './components/Account'
 
@@ -30,7 +21,6 @@ function App(props) {
   const [user, setUser] = useState("");
   const [deleteItem, SetDeleteItem]=useState('')
   
-  const [isEditing, setIsEditing] = useState(false)
 
 
   useEffect(() => {
@@ -46,12 +36,13 @@ function App(props) {
 
   
   useEffect(() => {
-    axiosWithAuth()
-    .get(`/items`)
-    .then(res=> {
-      console.log("rentalsState", res.data)
-      setMyRentals(res.data)
-    })
+      axiosWithAuth()
+       .get(`/items`)
+      // .get(`users/${1}/user-items`)
+      .then(res=> {
+        console.log("rentalsState", res.data)
+        setMyRentals(res.data)
+      })
   }, [myRentals])
 
 
@@ -59,7 +50,7 @@ function App(props) {
   return (
     <div className="App">
       <ProductsContext.Provider value={{ products, setProducts }}>
-        <MyRentalsContext.Provider value={{ products, setProducts,myRentals,setMyRentals,isEditing,setIsEditing}}>
+        <MyRentalsContext.Provider value={{ products, setProducts,myRentals,setMyRentals,}}>
           <SavedContext.Provider value={{ saved, setSaved }}>
             <UserContext.Provider value={{ user, setUser }}>
 

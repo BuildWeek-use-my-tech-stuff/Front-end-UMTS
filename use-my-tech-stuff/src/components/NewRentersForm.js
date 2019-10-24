@@ -5,14 +5,17 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 import Product from './Product';
 
 
-const NewRentersForm = ({isEditing,setIsEditing, name, price,editId},props) => {
+const NewRentersForm = ({isEditing,setIsEditing,product, name, price,editId},props) => {
 
-    const {rentersProducts,products, setProducts,isEdit, } = useContext(MyRentalsContext)
+    const {rentersProducts,products,setMyRentals, setProducts,isEdit, } = useContext(MyRentalsContext)
 
     const[newItem,setNewItem] =useState({
         price: '',
         item_name: '',
         description: '',
+        photo: '',
+        available: true, 
+        user_id: '',
     })
 
 
@@ -36,10 +39,11 @@ const NewRentersForm = ({isEditing,setIsEditing, name, price,editId},props) => {
      e.preventDefault();
      if(isEditing){
          axiosWithAuth()
-         .put(`/items/${editId}`,newItem)
+          .put(`/items/${editId}`,newItem)
+        //  .put(`/${2}/user_items`,newItem)
          .then(res => {
              console.log(`hey I'm editing over here`)
-
+             setMyRentals(res.data)
              setNewItem({
                 item_name: '',
                 price: '',
@@ -51,6 +55,7 @@ const NewRentersForm = ({isEditing,setIsEditing, name, price,editId},props) => {
 
         axiosWithAuth()
         .post('/items',newItem)
+        // .post(`users/${1}/user-items`,newItem)
         .then(res => {
         console.log("Products successfully fetched!\n", res.data);
         setProducts(res.data);
@@ -73,7 +78,10 @@ const NewRentersForm = ({isEditing,setIsEditing, name, price,editId},props) => {
             [e.target.name]: e.target.value
         })
 	}
-	
+    
+    const handleFile = e => {
+        console.log(e.target.file)
+    }
 
 
     return ( 
@@ -95,13 +103,22 @@ const NewRentersForm = ({isEditing,setIsEditing, name, price,editId},props) => {
         <input 
         type='text'
         name="description"
-        placeholder='title'
+        placeholder='description'
         onChange={handleChange}
         value={newItem.description}
         />
-        <button type='submit'>{isEditing ? 'submit edit': 'Add Item'}</button>
-        <button>Cancel</button>
+        {/* <input
+         type="file"
+         name="file"
+         onChange={handleFile}
+        //  id="fileToUpload"
+         />
+          <input type="submit" value="Upload Image" name="submit"></input> */}
+
+        <button type='submit'>{isEditing ? 'Submit Edit': 'Add Item'}</button>
+        <button onClink={()=> setIsEditing(false)}>Cancel</button>
     </form>
+
      );
 }
  
