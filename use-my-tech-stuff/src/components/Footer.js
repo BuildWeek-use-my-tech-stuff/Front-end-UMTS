@@ -10,9 +10,14 @@ function Footer() {
         <NavLink to="/About">About</NavLink>
         <NavLink to="/ProductCard">Rentals</NavLink>
         <NavLink to="/">Log In</NavLink>
-        <NavLink to="/DashItems">Create Account</NavLink>
+        <NavLink to="/NewSignUp">Create Account</NavLink>
+        
 
-    </div>
+        {/* <NavLink to="/">Log In</NavLink> */}
+        {/* <NavLink to="/DashItems">Create Account</NavLink> */}
+        
+
+        </div>
     )
 }
 

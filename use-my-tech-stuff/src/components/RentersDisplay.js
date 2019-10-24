@@ -28,7 +28,7 @@ const RentersDisplay = ({product, match,setRentersProducts}) => {
 
     return (  
     <div className="item-container"> 
-        <li className="item-list">
+        <div className="item-list">
 
             <div className="title">{product.item_name}</div>
             <h1>{product.price}</h1>
@@ -37,7 +37,7 @@ const RentersDisplay = ({product, match,setRentersProducts}) => {
             {/* <div className="price">{item.price}</div>
             <button onClick={()=> removeTech(item.id)}>remove</button>
             <button onClick={()=>editTech(item)}>Edit</button> */}
-        </li>
+        </div>
     </div>       
     )
 }

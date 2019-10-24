@@ -53,7 +53,7 @@ const LoginForm = (props) => {
 
             <p>Don't have an account? Create one today!</p>
 
-            <NavLink to="/CreateAccount" className="createAccButton">Create Account</NavLink>
+            <NavLink to="/NewSignUp" className="createAccButton">Create Account</NavLink>
 
             <Footer />
 
