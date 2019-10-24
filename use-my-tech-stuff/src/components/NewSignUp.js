@@ -69,7 +69,7 @@ const NewSignUp = (props) => {
                 <button type='submit' className="subButton">Sign Up!</button>
             </form>
 
-            <Footer />
+            
 
         </div>
      );

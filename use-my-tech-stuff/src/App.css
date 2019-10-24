@@ -27,7 +27,7 @@ p {
 .App-header a {
   color: white;
   margin: 25px 0px 25px 50px;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
 }
@@ -189,8 +189,7 @@ body {
 }
 
 /* .renterItemName:hover {
-  width: 200px;
-  height: 200px;
+  border: 15px solid #949494;
   transition: 1s;
 } */
 

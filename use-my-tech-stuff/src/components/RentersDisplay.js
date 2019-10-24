@@ -1,13 +1,18 @@
-import React,{useContext, useEffect,} from 'react'
+import React,{useContext, useEffect,useState} from 'react'
 import { MyRentalsContext } from '../contexts/MyRentalsContext';
 import axiosWithAuth from '../utils/axiosWithAuth'
 import axios from 'axios'
+import NewRentersForm from './NewRentersForm';
+import RentersEditForm from './RentersEditForm';
 
 
 
-const RentersDisplay = ({product, match,setRentersProducts}) => {
+
+const RentersDisplay = ({product, match,setMyRentals, products,setProduct, setIsEditing, isEditing},props) => {
 
     const {removeItem,} = useContext(MyRentalsContext)
+
+
 
 
     const [newProduct, setNewProduct]=('')
@@ -16,29 +21,34 @@ const RentersDisplay = ({product, match,setRentersProducts}) => {
         const deleteItems = (id) => {
                 axiosWithAuth()
                 .delete(`/items/${id}`)
+                // .delete(`/users/user-items/${id}`)
                  .then(res => {
                 console.log(res)
-                // setRentersProducts(res.data)
+                setMyRentals(res.data)
             })
                 .catch(err => console.log(err))
         }
 
+       
+ 
 
-    
+    return  ( 
+        <>
 
     return (  
-    <div className="item-container"> 
-        <div className="item-list">
 
-            <div className="title">{product.item_name}</div>
-            <h1>{product.price}</h1>
-            <p className="productDescription">{product.description}</p>
-            <button onClick={()=> deleteItems(product.id)} className="deleteProduct">Delete</button>
-            {/* <div className="price">{item.price}</div>
-            <button onClick={()=> removeTech(item.id)}>remove</button>
-            <button onClick={()=>editTech(item)}>Edit</button> */}
+        <div className="item-list">
+            <h1>{product.item_name}</h1>
+            <img src={product.photo} alt="" />
+            <h3>{product.price}</h3>
+            <h3>{product.description}</h3>
+
+            <button onClick={()=> deleteItems(product.id)}>Delete</button>
+            <button onClick={()=> setIsEditing(true)}>Edit</button>
         </div>
-    </div>       
+
+        </>
+
     )
 }
  

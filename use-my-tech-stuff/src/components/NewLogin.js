@@ -1,10 +1,10 @@
-import React,{useState} from 'react'
+import React, { useState, useContext } from 'react'
 import axiosWithAuth from '../utils/axiosWithAuth'
 import Header from './Header';
 import Footer from './Footer';
 import {NavLink} from 'react-router-dom';
 
-const LoginForm = (props) => {
+const NewLogin = (props) => {
     const [credentials, setCredentials] = useState({
         username: '',
         password: '', 
@@ -55,10 +55,10 @@ const LoginForm = (props) => {
 
             <NavLink to="/NewSignUp" className="createAccButton">Create Account</NavLink>
 
-            <Footer />
+            
 
         </div>
-     );
+    );
 }
- 
-export default LoginForm;
+
+export default NewLogin;
