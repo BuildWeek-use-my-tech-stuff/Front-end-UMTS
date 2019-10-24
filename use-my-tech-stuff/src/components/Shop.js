@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth'
 import { UserContext } from "../contexts/UserContext";
+import Toggle from 'react-toggle'
 
-const Shop = ({ match }) => {
+const Shop = ({ match, product}) => {
   const [item, setItem] = useState({
     price: '',
     item_name: '',
     description: '',
+    photo: '',
   });
 
   // To be used for getting a user's items
@@ -25,30 +27,20 @@ const Shop = ({ match }) => {
   }, [match.params.id])
 
 
-  // useEffect(() => {
-
-  //   axiosWithAuth().delete(`/items/${match.params.id}`)
-  //     .then( res =>{
-  //        setItem(res.data)
-  //     console.log(res.data)
-  //     })
-  //     .catch( err => console.log(err));
-  // }, [match.params.id])
-
-
-
-
-  const removeTech = (id) => {
-    setItem(item.filter(tech => tech.id !== id.id));
-  }
 
 
   return (
     <div>
-      <p>${item.price}</p>
+      
       <p>{item.item_name}</p>
+      <p>${item.price}</p>
+      <img src={item.photo} alt="tech-gear"  className="imgStyle" />
       <p>{item.description}</p>
-      <button onClick={() => removeTech(item.id)}></button>
+      <label >
+       Availablility
+       <Toggle />
+           
+     </label>
     </div>
   );
 }
