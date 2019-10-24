@@ -12,14 +12,8 @@ import Header from './components/Header'
 import PrivateRoute from "./components/PrivateRoute";
 import { UserContext } from "./contexts/UserContext";
 import Shop from './components/Shop'
-// import PrivateRoute from './components/PrivateRoute'
-// import MyRentalsContext from './contexts/MyRentalsContext'
-
-import Signup from './components/Signup';
 import Account from './components/Account'
-import Product from './components/Product';
 import DashItems from './components/DashItems';
-// import { UserContext } from './contexts/UserContext';
 
 
 
@@ -30,11 +24,6 @@ function App(props) {
   const [user, setUser] = useState("");
 
 
-
-
-  // useEffect(() => {
-  //   console.log("User:\n", user);
-  // }, [user]);
   useEffect(() => {
     axiosWithAuth()
       .get('/items')
@@ -55,11 +44,7 @@ function App(props) {
         console.log("rentalsState", res.data)
         setMyRentals(res.data)
       })
-  }, [ ])
-
-
-
-
+  }, [myRentals])
 
 
 
@@ -71,13 +56,10 @@ function App(props) {
             <UserContext.Provider value={{ user, setUser }}>
               <Header />
               <Route exact path="/" component={NewLogin} />
-              <Route path="/test" component={DashItems} />
               <Route path="/NewSignUp" component={NewSignUp} />
               <Route path="/shop/:id" component={Shop} />
               <PrivateRoute path="/dashboard" component={Dashboard} />
               <Route path="/account" component={Account} />
-              {/* <PrivateRoute path="/shop/:id" component={Shop} />
-              <PrivateRoute path="/dashboard" component={Dashboard} /> */}
             </UserContext.Provider>
           </SavedContext.Provider>
         </MyRentalsContext.Provider>
