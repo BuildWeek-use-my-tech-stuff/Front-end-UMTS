@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-
 import { Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import { ProductsContext } from './contexts/ProductsContext';
 import { MyRentalsContext } from './contexts/MyRentalsContext';
 import { SavedContext } from './contexts/SavedContext';
 import NewLogin from './components/NewLogin';
+import NewSignUp from './components/NewSignUp';
 import axiosWithAuth from './utils/axiosWithAuth';
-import Footer from './components/Footer'
+import Header from './components/Header'
 import PrivateRoute from "./components/PrivateRoute";
 import { UserContext } from "./contexts/UserContext";
-
 import Shop from './components/Shop'
 // import PrivateRoute from './components/PrivateRoute'
 // import MyRentalsContext from './contexts/MyRentalsContext'
@@ -36,10 +35,8 @@ function App(props) {
   // useEffect(() => {
   //   console.log("User:\n", user);
   // }, [user]);
-
   useEffect(() => {
     axiosWithAuth()
-
       .get('/items')
       .then(res => {
         console.log("Products successfully fetched!\n", res.data);
@@ -72,24 +69,20 @@ function App(props) {
         <MyRentalsContext.Provider value={{ products, setProducts, myRentals, setMyRentals, }}>
           <SavedContext.Provider value={{ saved, setSaved }}>
             <UserContext.Provider value={{ user, setUser }}>
-
-              <Footer />
+              <Header />
               <Route exact path="/" component={NewLogin} />
               <Route path="/test" component={DashItems} />
-              <Route path="/create-account" component={Signup} />
+              <Route path="/NewSignUp" component={NewSignUp} />
               <Route path="/shop/:id" component={Shop} />
               <PrivateRoute path="/dashboard" component={Dashboard} />
               <Route path="/account" component={Account} />
               {/* <PrivateRoute path="/shop/:id" component={Shop} />
               <PrivateRoute path="/dashboard" component={Dashboard} /> */}
-
             </UserContext.Provider>
           </SavedContext.Provider>
         </MyRentalsContext.Provider>
       </ProductsContext.Provider>
-
     </div >
   );
 };
-
 export default App;

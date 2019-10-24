@@ -29,7 +29,7 @@ const Account = () => {
                 editId={editProduct.id}
                 description={editProduct.description}
             />}
-            <div>
+            <div className="accountContainer">
                 {myRentals.map(product => {
                     return (
                         <>
@@ -43,6 +43,7 @@ const Account = () => {
                         </>
                     )
                 })}
+                {/* </div> */}
             </div>
 
         </div>

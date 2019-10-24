@@ -62,10 +62,10 @@
 //             };
 //         },
 //         validationSchema: Yup.object().shape({
-//             name: Yup.string().min(2, "Name must have more than one character.").required("Required field."),
-//             email: Yup.string().email("Email not valid."),
-//             phone: Yup.string().min(10, "Phone Number must have 10 digits"),
-//             password: Yup.string().min(8, "Password must have at least 8 characters.").required("Required field."),
+            // name: Yup.string().min(2, "Name must have more than one character.").required("Required field."),
+            // email: Yup.string().email("Email not valid."),
+            // phone: Yup.string().min(10, "Phone Number must have 10 digits"),
+            // password: Yup.string().min(8, "Password must have at least 8 characters.").required("Required field."),
 //         })
         
 //     })(Forms)

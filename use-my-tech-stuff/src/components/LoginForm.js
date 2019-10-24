@@ -1,10 +1,10 @@
-import React, { useState, useContext } from 'react'
+import React,{useState} from 'react'
 import axiosWithAuth from '../utils/axiosWithAuth'
 import Header from './Header';
 import Footer from './Footer';
-import {NavLink} from 'react-router-dom';
+import ProductCard from './ProductCard';
 
-const NewLogin = (props) => {
+const LoginForm = (props) => {
     const [credentials, setCredentials] = useState({
         username: '',
         password: '', 
@@ -20,7 +20,7 @@ const NewLogin = (props) => {
     axiosWithAuth().post("/auth/login", credentials)
         .then(res => {
             localStorage.setItem('token', res.data.token)
-            props.history.push("/account")    
+            props.history.push("/CreateAccount")    
         })
         .catch(err => console.log(err.response))
 }
@@ -38,7 +38,6 @@ const NewLogin = (props) => {
                 placeholder='Username'  
                 value={credentials.username}
                 onChange={handleChanges}
-                required
                 />
                 <input  className="passwordForm"
                 type='password'
@@ -46,19 +45,16 @@ const NewLogin = (props) => {
                 placeholder='Password'  
                 value={credentials.password}
                 onChange={handleChanges}
-                required
                 />
                 <button type='submit' className="subButton">Login</button>
             </form>
 
-            <p>Don't have an account? Create one today!</p>
 
-            <NavLink to="/NewSignUp" className="createAccButton">Create Account</NavLink>
 
-            
+            <Footer />
 
         </div>
-    );
+     );
 }
-
-export default NewLogin;
+ 
+export default LoginForm;

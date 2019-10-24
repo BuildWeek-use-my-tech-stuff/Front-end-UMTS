@@ -74,34 +74,33 @@ const NewRentersForm = ({ isEditing, setIsEditing, product, name, price,descript
             [e.target.name]: e.target.value
         })
     }
-
     const handleFile = e => {
         console.log(e.target.file)
     }
     return (
         <form onSubmit={handleSubmit}>
-            <input
+            <input className="renterItemName"
                 type='text'
                 name='item_name'
                 placeholder='title'
                 onChange={handleChange}
                 value={newItem.item_name}
             />
-            <input
+            <input className="renterItemPrice"
                 type='number'
                 name="price"
                 placeholder='price'
                 onChange={handleChange}
                 value={newItem.price}
             />
-            <input
+            <input className="renterItemDescription"
                 type='text'
                 name="description"
                 placeholder='description'
                 onChange={handleChange}
                 value={newItem.description}
             />
-            <input
+            <input className="imgStyle"
                 type="text"
                 placeholder='Upload Image URL'
                 name="photo"

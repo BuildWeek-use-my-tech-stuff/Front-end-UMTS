@@ -6,6 +6,10 @@
   height: 40vmin;
 }
 
+p {
+  font-family: 'Roboto', sans-serif;
+}
+
 .App-header {
   background-color: #5ab9ea;
   height: 100px;
@@ -13,8 +17,28 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.75rem;
   color: white;
+  margin-bottom: 50px;
+  position: fixed;
+  right: 0; top:0; left:0;
+}
+
+.App-header a {
+  color: white;
+  margin: 25px 0px 25px 50px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+.App-header a:hover {
+  color: #8860D0;
+  transition: 1.0s;
+}
+
+.App-header h1{
+  margin: 0px 200px 0px 0px;
 }
 
 .App-link {
@@ -23,6 +47,8 @@
 
 body {
   font-family: 'Montserrat';
+  min-height: 700px;
+  margin: 125px 0px 75px 0px;
 }
 
 .h1NewUserForm {
@@ -38,7 +64,7 @@ body {
   flex-direction: column;
 }
 
-.firstNameForm {
+.nameForm {
   background-color: #F2F2F2;
   border: none;
   width: 60%;
@@ -47,7 +73,7 @@ body {
   text-align: center;
 }
 
-.firstNameForm::-webkit-input-placeholder {
+.nameForm::-webkit-input-placeholder {
   font-family: 'Montserrat';
 }
 
@@ -107,6 +133,199 @@ body {
   text-align: center;
 }
 
+.footerNav {
+  height: 50px;
+  background-color: #5ab9ea;
+  position: fixed;
+  right: 0;bottom:0;left:0;
+  margin-top: 20px;
+  padding-top: 25px;
+}
+
+.footerNav a {
+  color: white;
+  margin-top: 50px;
+  padding: 0 65px;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footerNav a:hover {
+  color: #8860D0;
+  transition: 1.0s;
+}
+
+.productContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* .productCard {
+  border: 4px solid #84ceeb;
+  border-radius: 10%;
+  width: 400px;
+  height: 500px;
+  margin: 0 0 33px 0;
+} */
+
+.createAccButton {
+  color: black;
+}
+
+.createAccButton:hover {
+  color: #8860D0;
+  transition: 1.0s;
+}
+
+.renterItemName {
+  background-color: #F2F2F2;
+  border: none;
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* .renterItemName:hover {
+  border: 15px solid #949494;
+  transition: 1s;
+} */
+
+.renterItemPrice {
+  background-color: #F2F2F2;
+  border: none;
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  font-size: 1rem;
+  text-align: center;
+  margin: 0 20px;
+}
+
+/* .renterItemPrice:hover {
+width: 200px;
+height: 200px;
+transition: 1s;
+} */
+
+.renterItemDescription {
+  background-color: #F2F2F2;
+  border: none;
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* .renterItemDescription:hover {
+  width: 200px;
+  height: 200px;
+  transition: 1s;
+} */
+
+.rentalSubButton {
+  background-color: #F2F2F2;
+  margin: 0 0 0 20px;
+  border: none;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  font-size: 1.0rem;
+}
+
+.rentalSubButton:hover {
+  height: 150px;
+  width: 150px;
+  transition: all 0.75s;
+}
+
+.accountContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1000px;
+  justify-content: center;
+  margin: 0 0 0 15%;
+}
+
+.item-container {
+  border: 2px solid gray;
+  border-radius: 10%;
+  margin: 15px 15px;
+  width: 282px;
+  height: 400px;
+}
+
 .item-list{
   list-style-type: none;
+  width: 100%;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.productDescription {
+  font-size: 1.75rem;
+}
+
+.deleteProduct {
+  background-color: #F2F2F2;
+  border: none;
+  font-size: 1rem;
+  text-align: center;
+  margin: 20px 0;
+  width: 100px;
+  height: 50px;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1100px;
+  justify-content: center;
+  margin: 50px 0 0 12%;
+}
+
+/* .dashboard {
+  border: 2px solid blue;
+} */
+
+.product {
+  border: 4px solid #84ceeb;
+  border-radius: 10%;
+  border-radius: 10%;
+  margin: 15px 15px;
+  width: 282px;
+  height: 315px;
+}
+
+.product img {
+  width: 100px;
+  height: 100px;
+  margin: 50px 0 0 0;
+}
+
+.rentalEditButton {
+  background-color: #F2F2F2;
+  margin: 0 0 0 20px;
+  border: none;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  font-size: 1.0rem;
+}
+
+.rentalEditButton:hover {
+  height: 75px;
+  width: 75px;
+  transition: all 0.75s;
+}
+
+.imgStyle {
+  width: 100px;
+  height: 50px;
 }

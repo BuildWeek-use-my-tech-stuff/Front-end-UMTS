@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import ProductList from "./ProductList";
 import SearchForm from "./SearchForm";
 import { ProductsContext } from "../contexts/ProductsContext";
+import ProductCard from './ProductCard';
 
 const Dashboard = props => {
     const { products, setProducts } = useContext(ProductsContext);
@@ -13,8 +14,10 @@ const Dashboard = props => {
     return (
         <div className="dashboard">
             <h2>Dashboard</h2>
-            <SearchForm products={products} setDisplayed={setDisplayed} />
-            <ProductList displayed={displayed} />
+            <div className="prodListCont">
+                <SearchForm products={products} setDisplayed={setDisplayed} />
+                <ProductList displayed={displayed} />
+            </div>
         </div>
     );
 }
