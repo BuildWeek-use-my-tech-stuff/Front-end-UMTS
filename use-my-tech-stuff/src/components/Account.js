@@ -115,7 +115,7 @@ const Account = () => {
                         <>
                     <NewRentersForm isEditing={isEditing} setIsEditing={setIsEditing} price={product.price} name={product.item_name} editId={product.id} />
                     <RentersDisplay key={product.id}  product={product}  setIsEditing={setIsEditing} isEditing={isEditing} />
-                    <button>test</button>
+                    <button className="rentalEditButton">Test</button>
                     </>
                     )
                 })}

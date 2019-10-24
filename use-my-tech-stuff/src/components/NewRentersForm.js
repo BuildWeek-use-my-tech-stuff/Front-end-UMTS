@@ -99,8 +99,8 @@ const NewRentersForm = ({isEditing,setIsEditing,product, name, price,editId},pro
         //  id="fileToUpload"
          />
           <input type="submit" value="Upload Image" name="submit"></input> */}
-        <button type='submit'>{isEditing ? 'Submit Edit': 'Add Item'}</button>
-        <button onClink={()=> setIsEditing(false)}>Cancel</button>
+        <button type='submit' className="rentalSubButton">{isEditing ? 'Submit Edit': 'Add Item'}</button>
+        <button onClink={()=> setIsEditing(false)} className="rentalSubButton">Cancel</button>
     </form>
      );
 }

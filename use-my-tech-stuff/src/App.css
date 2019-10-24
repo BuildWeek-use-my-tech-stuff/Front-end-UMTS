@@ -306,3 +306,19 @@ transition: 1s;
   width: 282px;
   height: 315px;
 }
+
+.rentalEditButton {
+  background-color: #F2F2F2;
+  margin: 0 0 0 20px;
+  border: none;
+  border-radius: 100%;
+  width: 70px;
+  height: 70px;
+  font-size: 1.0rem;
+}
+
+.rentalEditButton:hover {
+  height: 100px;
+  width: 100px;
+  transition: all 0.75s;
+}

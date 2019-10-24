@@ -43,8 +43,8 @@ const RentersDisplay = ({product, match,setMyRentals, products,setProduct, setIs
             <h3>{product.price}</h3>
             <h3>{product.description}</h3>
 
-            <button onClick={()=> deleteItems(product.id)}>Delete</button>
-            <button onClick={()=> setIsEditing(true)}>Edit</button>
+            <button onClick={()=> deleteItems(product.id)} className="rentalEditButton">Delete</button>
+            <button onClick={()=> setIsEditing(true)} className="rentalEditButton">Edit</button>
         </div>
 
         </>
