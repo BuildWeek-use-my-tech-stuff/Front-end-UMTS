@@ -8,14 +8,17 @@ import { SavedContext } from './contexts/SavedContext';
 import NewLogin from './components/NewLogin';
 import NewSignUp from './components/NewSignUp';
 import axiosWithAuth from './utils/axiosWithAuth';
-import Footer from './components/Footer'
+import Header from './components/Header'
 import PrivateRoute from "./components/PrivateRoute";
 import { UserContext } from "./contexts/UserContext";
 import Shop from './components/Shop'
-// import PrivateRoute from './components/PrivateRoute';
-// import MyRentalsContext from './contexts/MyRentalsContext';
-import Account from './components/Account';
-import Header from './components/Header';
+// import PrivateRoute from './components/PrivateRoute'
+// import MyRentalsContext from './contexts/MyRentalsContext'
+
+import Signup from './components/Signup';
+import Account from './components/Account'
+import Product from './components/Product';
+import DashItems from './components/DashItems';
 // import { UserContext } from './contexts/UserContext';
 
 
@@ -26,18 +29,13 @@ function App(props) {
   const [myRentals, setMyRentals] = useState([]);
   const [user, setUser] = useState("");
 
-  const [deleteItem, SetDeleteItem] = useState('')
 
 
-  // const [deleteItem, SetDeleteItem] = useState('');
 
   // useEffect(() => {
   //   console.log("User:\n", user);
   // }, [user]);
   useEffect(() => {
-
-
-
     axiosWithAuth()
       .get('/items')
       .then(res => {
@@ -53,12 +51,11 @@ function App(props) {
   useEffect(() => {
     axiosWithAuth()
       .get(`/items`)
-      // .get(`users/${1}/user-items`)
       .then(res => {
         console.log("rentalsState", res.data)
         setMyRentals(res.data)
       })
-  }, [myRentals])
+  }, [ ])
 
 
 
@@ -74,8 +71,9 @@ function App(props) {
             <UserContext.Provider value={{ user, setUser }}>
               <Header />
               <Route exact path="/" component={NewLogin} />
+              <Route path="/test" component={DashItems} />
               <Route path="/NewSignUp" component={NewSignUp} />
-              <PrivateRoute path="/shop/:id" render={props => <Shop {...props} />} />
+              <Route path="/shop/:id" component={Shop} />
               <PrivateRoute path="/dashboard" component={Dashboard} />
               <Route path="/account" component={Account} />
               {/* <PrivateRoute path="/shop/:id" component={Shop} />

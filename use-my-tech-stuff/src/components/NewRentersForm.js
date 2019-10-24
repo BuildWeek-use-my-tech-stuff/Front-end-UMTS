@@ -3,7 +3,9 @@ import axios from 'axios'
 import { MyRentalsContext } from '../contexts/MyRentalsContext';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import Product from './Product';
-const NewRentersForm = ({ isEditing, setIsEditing, product, name, price, editId }, props) => {
+import Toggle from 'react-toggle'
+
+const NewRentersForm = ({ isEditing, setIsEditing, product, name, price,description, editId }, props) => {
     const { rentersProducts, products, setMyRentals, setProducts, isEdit, } = useContext(MyRentalsContext)
     const [newItem, setNewItem] = useState(
         isEditing
@@ -23,7 +25,7 @@ const NewRentersForm = ({ isEditing, setIsEditing, product, name, price, editId 
             setNewItem({
                 item_name: name,
                 price: price,
-                description: 'those'
+                description: description
             })
         } else {
             setNewItem({ price: '', item_name: '', description: '' })
@@ -43,7 +45,8 @@ const NewRentersForm = ({ isEditing, setIsEditing, product, name, price, editId 
                     setNewItem({
                         item_name: '',
                         price: '',
-                        description: ''
+                        description: '',
+                        photo: ''
                     })
                     setIsEditing(false)
                 })
@@ -59,7 +62,8 @@ const NewRentersForm = ({ isEditing, setIsEditing, product, name, price, editId 
             setNewItem({
                 item_name: '',
                 price: '',
-                description: ''
+                description: '',
+                photo: '',
             })
         }
 
@@ -75,37 +79,38 @@ const NewRentersForm = ({ isEditing, setIsEditing, product, name, price, editId 
     }
     return (
         <form onSubmit={handleSubmit}>
-        <input className="renterItemName"
-        type='text'
-        name='item_name'
-        placeholder='title'
-        onChange={handleChange}
-        value={newItem.item_name}
-        />
-        <input className="renterItemPrice"
-        type='number'
-        name="price"
-        placeholder='price'
-        onChange={handleChange}
-        value={newItem.price}
-        />
-        <input className="renterItemDescription"
-        type='text'
-        name="description"
-        placeholder='description'
-        onChange={handleChange}
-        value={newItem.description}
-        />
-        {/* <input
-         type="file"
-         name="file"
-         onChange={handleFile}
-        //  id="fileToUpload"
-         />
-          <input type="submit" value="Upload Image" name="submit"></input> */}
-        <button type='submit' className="rentalSubButton">{isEditing ? 'Submit Edit': 'Add Item'}</button>
-        <button onClink={()=> setIsEditing(false)} className="rentalSubButton">Cancel</button>
-    </form>
-     );
+            <input className="renterItemName"
+                type='text'
+                name='item_name'
+                placeholder='title'
+                onChange={handleChange}
+                value={newItem.item_name}
+            />
+            <input className="renterItemPrice"
+                type='number'
+                name="price"
+                placeholder='price'
+                onChange={handleChange}
+                value={newItem.price}
+            />
+            <input className="renterItemDescription"
+                type='text'
+                name="description"
+                placeholder='description'
+                onChange={handleChange}
+                value={newItem.description}
+            />
+            <input className="imgStyle"
+                type="text"
+                placeholder='Upload Image URL'
+                name="photo"
+                onChange={handleChange}
+                value={newItem.photo}
+            />
+            
+            <button type='submit'>{isEditing ? 'Submit Edit' : 'Add Item'}</button>
+            <button onClink={() => setIsEditing(false)}>Cancel</button>
+        </form>
+    );
 }
 export default NewRentersForm;

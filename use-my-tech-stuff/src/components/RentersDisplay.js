@@ -3,7 +3,9 @@ import { MyRentalsContext } from '../contexts/MyRentalsContext';
 import axiosWithAuth from '../utils/axiosWithAuth'
 import axios from 'axios'
 import NewRentersForm from './NewRentersForm';
-import RentersEditForm from './RentersEditForm';
+import Toggle from 'react-toggle'
+
+
 
 
 
@@ -33,24 +35,28 @@ const RentersDisplay = ({ setEditProduct, product, match, setMyRentals, products
 
 
     return (
-        <>
-    <div className="">
+<>
+    <div>
         <div className="item-container">
             <div className="item-list">
                 <h1>{product.item_name}</h1>
-                <img src={product.photo} alt="tech-gear" className="imgStyle" />
+                <img src={product.photo} alt="tech-gear"  className="imgStyle" />
                 <h3>{product.price}</h3>
                 <h3>{product.description}</h3>
-            </div>
-                <button className="rentalEditButton" onClick={() => deleteItems(product.id)}>Delete</button>
-                <button className="rentalEditButton" onClick={() => {
+                <label >
+                Availablility
+            <Toggle />
+            </label>
+
+                <button onClick={() => deleteItems(product.id)}>Delete</button>
+                <button onClick={() => {
                     setIsEditing(true);
                     setEditProduct(product);
                 }}>Edit</button>
             </div>
-    </div>    
-        </>
-
+        </div>    
+        </div>
+</>
     )
 }
 
