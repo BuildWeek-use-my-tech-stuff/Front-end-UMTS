@@ -9,7 +9,7 @@ import { SavedContext } from './contexts/SavedContext';
 import NewLogin from './components/NewLogin';
 import axiosWithAuth from './utils/axiosWithAuth';
 import Footer from './components/Footer'
-
+import PrivateRoute from "./components/PrivateRoute";
 import { UserContext } from "./contexts/UserContext";
 
 import Shop from './components/Shop'
@@ -18,7 +18,7 @@ import Shop from './components/Shop'
 import Signup from './components/Signup';
 
 import Account from './components/Account'
-import { UserContext } from './contexts/UserContext';
+// import { UserContext } from './contexts/UserContext';
 
 
 
@@ -28,10 +28,10 @@ function App(props) {
   const [myRentals, setMyRentals] = useState([]);
   const [user, setUser] = useState("");
 
-  const [deleteItem, SetDeleteItem]=useState('')
-  
+  const [deleteItem, SetDeleteItem] = useState('')
 
-  const [deleteItem, SetDeleteItem] = useState('');
+
+  // const [deleteItem, SetDeleteItem] = useState('');
 
   // useEffect(() => {
   //   console.log("User:\n", user);
@@ -39,7 +39,7 @@ function App(props) {
 
   useEffect(() => {
 
-      axiosWithAuth()
+
 
     axiosWithAuth()
 
@@ -51,21 +51,20 @@ function App(props) {
       .catch(err => console.log("Error fetching products:\n", err));
 
 
-  },[])
+  }, [])
 
-  
+
   useEffect(() => {
-      axiosWithAuth()
-       .get(`/items`)
+    axiosWithAuth()
+      .get(`/items`)
       // .get(`users/${1}/user-items`)
-      .then(res=> {
+      .then(res => {
         console.log("rentalsState", res.data)
         setMyRentals(res.data)
       })
   }, [myRentals])
 
 
-  }, []);
 
 
 
@@ -74,14 +73,14 @@ function App(props) {
   return (
     <div className="App">
       <ProductsContext.Provider value={{ products, setProducts }}>
-        <MyRentalsContext.Provider value={{ products, setProducts,myRentals,setMyRentals,}}>
+        <MyRentalsContext.Provider value={{ products, setProducts, myRentals, setMyRentals, }}>
           <SavedContext.Provider value={{ saved, setSaved }}>
             <UserContext.Provider value={{ user, setUser }}>
 
               <Footer />
               <Route exact path="/" component={NewLogin} />
               <Route path="/create-account" component={Signup} />
-              <PrivateRoute path="/shop/:id" component={Shop} />
+              <PrivateRoute path="/shop/:id" render={props => <Shop {...props} />} />
               <PrivateRoute path="/dashboard" component={Dashboard} />
               <Route path="/account" component={Account} />
               {/* <PrivateRoute path="/shop/:id" component={Shop} />
