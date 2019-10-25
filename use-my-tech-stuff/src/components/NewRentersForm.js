@@ -43,6 +43,7 @@ const NewRentersForm = ({ isEditing, setIsEditing, product, name, price, descrip
                 .then(res => {
                     console.log(`hey I'm editing over here`)
                     setMyRentals(res.data)
+                    setProducts(res.data)
                     setNewItem({
                         item_name: '',
                         price: '',
@@ -56,7 +57,8 @@ const NewRentersForm = ({ isEditing, setIsEditing, product, name, price, descrip
                 .post('/items', newItem)
                 .then(res => {
                     console.log("Products successfully fetched!\n", res.data);
-                    setProducts(res.data);
+                    setMyRentals(res.data);
+                    setProducts(res.data)
                 })
                 .catch(err => console.log("Error fetching products:\n", err));
             setNewItem({
@@ -66,17 +68,15 @@ const NewRentersForm = ({ isEditing, setIsEditing, product, name, price, descrip
                 photo: '',
             })
         }
-
     };
+
     const handleChange = e => {
         setNewItem({
             ...newItem,
             [e.target.name]: e.target.value
         })
     }
-    const handleFile = e => {
-        console.log(e.target.file)
-    }
+    
     return (
         <form onSubmit={handleSubmit}>
             <input className="renterItemName"

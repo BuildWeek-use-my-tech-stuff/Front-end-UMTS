@@ -390,3 +390,8 @@ transition: 1s;
 .descriptionAccount{
   margin: 3% 6%;
 }
+
+.loading{
+  display: flex;
+  justify-content: center;
+}
