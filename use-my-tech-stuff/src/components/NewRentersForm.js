@@ -5,8 +5,8 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 import Product from './Product';
 import Toggle from 'react-toggle'
 
-const NewRentersForm = ({ isEditing, setIsEditing, product, name, price,description,photo, editId }, props) => {
-    const {  setMyRentals, setProducts,  } = useContext(MyRentalsContext)
+const NewRentersForm = ({ isEditing, setIsEditing, product, name, price, description, photo, editId }, props) => {
+    const { setMyRentals, setProducts, } = useContext(MyRentalsContext)
     const [newItem, setNewItem] = useState(
         isEditing
             ? product
@@ -107,7 +107,7 @@ const NewRentersForm = ({ isEditing, setIsEditing, product, name, price,descript
                 onChange={handleChange}
                 value={newItem.photo}
             />
-            
+
             <button type='submit'>{isEditing ? 'Submit Edit' : 'Add Item'}</button>
             <button onClink={() => setIsEditing(false)}>Cancel</button>
         </form>
