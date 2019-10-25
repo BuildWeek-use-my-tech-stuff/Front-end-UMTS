@@ -33,7 +33,7 @@ const NewSignUp = (props) => {
             <Header />
 
             {/* <form onSubmit={handleSubmit}> */}
-            <form>
+            <form className="loginForm">
                 <input  className="nameForm"
                 type='text'
                 name='username'

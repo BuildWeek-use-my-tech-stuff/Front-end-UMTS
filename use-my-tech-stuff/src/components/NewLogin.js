@@ -25,13 +25,13 @@ const NewLogin = (props) => {
         .catch(err => console.log(err.response))
 }
     return ( 
-        <div className="loginForm">
+        <div >
 
             <h1>Log In</h1>
 
             <Header />
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="loginForm" >
                 <input  className="nameForm"
                 type='text'
                 name='username'
