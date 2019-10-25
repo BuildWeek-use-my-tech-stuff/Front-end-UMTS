@@ -35,28 +35,6 @@ const RentersDisplay = ({ setEditProduct, product, match, setMyRentals, products
     return (
 
 <>
-    <div>
-        <div className="item-container">
-            <div className="item-list">
-                <h1>{product.item_name}</h1>
-                <img src={product.photo} alt="tech-gear"  className="imgStyle" />
-                <h3>${product.price}</h3>
-                <h4 className="descriptionAccount">{product.description}</h4>
-                <label >
-
-                Availablility
-            <Toggle className="toggleStyle"/>
-            </label>
-
-                <button onClick={() => deleteItems(product.id)} className="rentalEditButton">Delete</button>
-                <button onClick={() => {
-                    setIsEditing(true);
-                    setEditProduct(product);
-                }} className="rentalEditButton">Edit</button>
-
-                Availability
-
-        <>
             <div>
                 <div className="item-container">
                     <div className="item-list">
@@ -65,15 +43,14 @@ const RentersDisplay = ({ setEditProduct, product, match, setMyRentals, products
                         <h3>{product.price}</h3>
                         <h3>{product.description}</h3>
                         <label >
-                            Availablility
-
-            <Toggle
-                                defaultChecked={toggle}
+                        Availability
+                            <Toggle defaultChecked={toggle}
+                            className="toggleStyle"
                             />
                         </label>
 
-                        <button onClick={() => deleteItems(product.id)}>Delete</button>
-                        <button onClick={() => {
+                        <button className="rentalEditButton" onClick={() => deleteItems(product.id)}>Delete</button>
+                        <button className="rentalEditButton"onClick={() => {
                             setIsEditing(true);
                             setEditProduct(product);
                         }}>Edit</button>

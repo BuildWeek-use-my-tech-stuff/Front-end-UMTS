@@ -34,27 +34,16 @@ const Shop = ({ match, product}) => {
 
   return (
     <div className="soloProductCard">
-      
-
-      <p className="itemNameSolo">{item.item_name}</p>
-      <p className="itemPriceSolo">${item.price}</p>
-      <img src={item.photo} alt="tech-gear"  className="imgStyleSolo" />
-      <p className="itemDescSolo">{item.description}</p>
-      <label >
-       Availablility
-       <Toggle className="toggleStyle"/>
-
-      <img src={item.photo} alt="tech-gear"  className="imgStyle" />
-      <h1>{item.item_name}</h1>
-      <p>${item.price}</p>
-      <p>{item.description}</p>
-      <label >
-      Availability
-       <Toggle defaultChecked={toggle}
-       />
-
-           
-     </label>
+        <p className="itemPriceSolo">{item.item_name}</p>
+        <img src={item.photo} alt="tech-gear"  className="imgStyleSolo" />
+        <p className="itemPriceSolo">${item.price}</p>
+        <p className="itemDescSolo">{item.description}</p>
+        <label >
+        Availability
+            <Toggle defaultChecked={toggle}
+            className="toggleStyle"
+            />
+        </label>
     </div>
   );
 }
