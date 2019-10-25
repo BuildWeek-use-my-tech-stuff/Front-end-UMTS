@@ -287,6 +287,7 @@ transition: 1s;
   width: 60px;
   height: 60px;
   font-size: 1.0rem;
+  border:1px solid#5680e9
 }
 
 .rentalEditButton:active{outline: 0;}
