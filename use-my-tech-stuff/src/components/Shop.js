@@ -35,12 +35,12 @@ const Shop = ({ match, product}) => {
   return (
     <div>
       
-      <p>{item.item_name}</p>
-      <p>${item.price}</p>
       <img src={item.photo} alt="tech-gear"  className="imgStyle" />
+      <h1>{item.item_name}</h1>
+      <p>${item.price}</p>
       <p>{item.description}</p>
       <label >
-       Availablility
+      Availability
        <Toggle defaultChecked={toggle}
        />
            
