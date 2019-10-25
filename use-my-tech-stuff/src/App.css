@@ -390,3 +390,40 @@ transition: 1s;
 .descriptionAccount{
   margin: 3% 6%;
 }
+
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 450px) {
+  .App-header {
+    flex-direction: column;
+    height: 400px;
+    position: relative;
+    
+  }
+
+  .App-header h1 {
+    width: 100%;
+    font-size: 2.2rem;
+    margin: 0;
+  }
+
+  .App-header a {
+    width: 100%;
+    margin: 0;
+    font-size: 1.5rem;
+    padding: 2.5%;
+  }
+
+  .searchStyles {
+    width: 100%;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  .item-container {
+    height: auto;
+  }
+
+}
