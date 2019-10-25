@@ -1,6 +1,6 @@
 # Front-end-UMTS
 
-## Link https://use-my-tech-stuff.techne3.now.sh
+## Project Link https://use-my-tech-stuff.techne3.now.sh
    Proposal
 
 - What problem does your app solve? 
