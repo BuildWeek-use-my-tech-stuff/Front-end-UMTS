@@ -13,7 +13,7 @@ const SearchForm = ({ products, setDisplayed }) => {
 
     return (
         <div className="search-form">
-            <input onChange={handleChanges} value={search} placeholder="Search" />
+            <input className="searchStyles"onChange={handleChanges} value={search} placeholder="Search" />
         </div>
     );
 

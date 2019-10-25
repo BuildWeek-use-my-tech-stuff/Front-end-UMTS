@@ -33,8 +33,17 @@ const Shop = ({ match, product}) => {
 
 
   return (
-    <div>
+    <div className="soloProductCard">
       
+
+      <p className="itemNameSolo">{item.item_name}</p>
+      <p className="itemPriceSolo">${item.price}</p>
+      <img src={item.photo} alt="tech-gear"  className="imgStyleSolo" />
+      <p className="itemDescSolo">{item.description}</p>
+      <label >
+       Availablility
+       <Toggle className="toggleStyle"/>
+
       <img src={item.photo} alt="tech-gear"  className="imgStyle" />
       <h1>{item.item_name}</h1>
       <p>${item.price}</p>
@@ -43,6 +52,7 @@ const Shop = ({ match, product}) => {
       Availability
        <Toggle defaultChecked={toggle}
        />
+
            
      </label>
     </div>

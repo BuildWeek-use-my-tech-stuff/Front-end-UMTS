@@ -43,6 +43,17 @@ const RentersDisplay = ({ setEditProduct, product, match, setMyRentals, products
                 <h3>${product.price}</h3>
                 <h4 className="descriptionAccount">{product.description}</h4>
                 <label >
+
+                Availablility
+            <Toggle className="toggleStyle"/>
+            </label>
+
+                <button onClick={() => deleteItems(product.id)} className="rentalEditButton">Delete</button>
+                <button onClick={() => {
+                    setIsEditing(true);
+                    setEditProduct(product);
+                }} className="rentalEditButton">Edit</button>
+
                 Availability
 
         <>
@@ -68,6 +79,7 @@ const RentersDisplay = ({ setEditProduct, product, match, setMyRentals, products
                         }}>Edit</button>
                     </div>
                 </div>
+
             </div>
         </>
     )
