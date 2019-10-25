@@ -1,22 +1,433 @@
 .App {
   text-align: center;
 }
-
 .App-logo {
   height: 40vmin;
 }
-
+p {
+  font-family: 'Roboto', sans-serif;
+}
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #5ab9ea;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  color: white;
+  margin-bottom: 50px;
+  position: fixed;
+  right: 0; top:0; left:0;
+  z-index:999;
+}
+.App-header a {
+  color: white;
+  margin: 25px 0px 25px 50px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+}
+.App-header a:hover {
+  color: #8860D0;
+  transition: 1.0s;
+}
+.App-header h1{
+  margin: 0px 200px 0px 0px;
+}
+.App-link {
+  color: #09d3ac;
+}
+body {
+  font-family: 'Montserrat';
+  min-height: 700px;
+  margin: 125px 0px 75px 0px;
+}
+.h1NewUserForm {
+  padding-top: 20px;
+}
+.newUserForm {
+  height: 489px;
+}
+.newUserForm01 {
+  display: flex;
+  flex-direction: column;
+}
+.nameForm {
+  background-color: #F2F2F2;
+  border: none;
+  width: 60%;
+  height: 100px;
+  font-size: 2rem;
+  text-align: center;
+}
+.nameForm::-webkit-input-placeholder {
+  font-family: 'Montserrat';
+}
+.emailForm {
+  background-color: #F2F2F2;
+  border: none;
+  margin-top: 50px;
+  width: 60%;
+  height: 100px;
+  font-size: 2rem;
+  text-align: center;
+}
+.emailForm::-webkit-input-placeholder {
+  font-family: 'Montserrat';
+}
+.phoneForm {
+  background-color: #F2F2F2;
+  border: none;
+  margin-top: 50px;
+  width: 60%;
+  height: 100px;
+  font-size: 2rem;
+  text-align: center;
+}
+.passwordForm {
+  background-color: #F2F2F2;
+  border: none;
+  width: 60%;
+  height: 100px;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 50px;
+}
+.passwordForm::-webkit-input-placeholder {
+  font-family: 'Montserrat';
+}
+.subButton {
+  background-color: #F2F2F2;
+  border: none;
+  font-size: 1rem;
+  text-align: center;
+  margin: 25px ;
+  width: 150px;
+  height: 50px;
+}
+.error {
+  color: red;
+  margin: 0 46%;
+  width: 125px;
+  text-align: center;
+}
+.footerNav {
+  height: 50px;
+  background-color: #5ab9ea;
+  position: fixed;
+  right: 0;bottom:0;left:0;
+  margin-top: 20px;
+  padding-top: 25px;
+}
+.footerNav a {
+  color: white;
+  margin-top: 50px;
+  padding: 0 65px;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+}
+.footerNav a:hover {
+  color: #8860D0;
+  transition: 1.0s;
+}
+.productContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+/* .productCard {
+  border: 4px solid #84ceeb;
+  border-radius: 10%;
+  width: 400px;
+  height: 500px;
+  margin: 0 0 33px 0;
+} */
+.createAccButton {
+  color: black;
+}
+.createAccButton:hover {
+  color: #8860D0;
+  transition: 0.5s;
+}
+.renterItemName {
+  background-color: #F2F2F2;
+  border: none;
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  font-size: 1rem;
+  text-align: center;
+}
+.renterItemName:focus{outline:0}
+/* .renterItemName:hover {
+  border: 15px solid #949494;
+  transition: 1s;
+} */
+.renterItemPrice {
+  background-color: #F2F2F2;
+  border: none;
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  font-size: 1rem;
+  text-align: center;
+  margin: 0 20px;
+}
+.renterItemPrice:focus{outline:0}
+/* .renterItemPrice:hover {
+width: 200px;
+height: 200px;
+transition: 1s;
+} */
+.renterItemDescription {
+  background-color: #F2F2F2;
+  border: none;
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  font-size: 1rem;
+  text-align: center;
+}
+.renterItemDescription:focus{outline:0}
+/* .renterItemDescription:hover {
+  width: 200px;
+  height: 200px;
+  transition: 1s;
+} */
+.rentalSubButton {
+  background-color: #F2F2F2;
+  margin: 0 0 0 20px;
+  border: none;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  font-size: 1.0rem;
+}
+.rentalSubButton:hover {
+  height: 150px;
+  width: 150px;
+  transition: all 0.75s;
+}
+.accountContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items:center;
+  width: 100%;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 10%, 40%;
+}
+.item-container {
+  border: 4px solid #84ceeb;
+  border-radius: 15px;
+  margin: 15px 25px;
+  width: 282px;
+  height: 500px;
+}
+.item-container:hover {
+  box-shadow: 0px 5px 37px -22px rgba(0, 0, 0, 1);
+}
+.item-list{
+  list-style-type: none;
+  width: 100%;
+}
+.title {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+.productDescription {
+  font-size: 1.75rem;
+}
+.deleteProduct {
+  background-color: #F2F2F2;
+  border: none;
+  font-size: 1rem;
+  text-align: center;
+  margin: 20px 0;
+  width: 100px;
+  height: 50px;
+}
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-items:center;
+  margin: 10%, 25%;
+}
+/* .dashboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid blue;
+  flex-direction: column;
+  margin: 0, 55%;
+  width:100%;
+} */
+.product {
+  border: 4px solid #84ceeb;
+  border-radius: 10%;
+  margin: 15px 25px;
+  width: 282px;
+  height: 375px;
+}
+.product:hover{
+  box-shadow: 0px 5px 37px -22px rgba(0, 0, 0, 1);
+}
+.product img {
+  width: 200px;
+  height: 100px;
+  margin: 50px 0 0 0;
+}
+.rentalEditButton {
+  background-color: #F2F2F2;
+  margin: 20px 35px;
+  border: none;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  font-size: 1.0rem;
+  border:1px solid#5680e9
 }
 
-.App-link {
-  color: #09d3ac;
+.rentalEditButton:active{outline: 0;}
+
+/* .rentalEditButton:hover {
+  height: 75px;
+  width: 75px;
+  transition: all 0.75s;
+} */
+
+.imgFormStyle {
+  height:50px;
+  background-color: #F2F2F2;
+  margin: 0 0 0 10px;
+  border: none;
+}
+
+.imgFormStyle:focus{outline:0}
+
+
+.formButton {
+  border: 2px solid #5680e9;
+  margin: 0 10px;
+
+  border-radius: 100%;
+  width: 70px;
+  height: 70px;
+  font-size: 1.0rem;
+  color:#000;
+}
+.formButton:hover {
+  height: 75px;
+  width: 75px;
+  transition: all 0.75s;
+}
+.formButton:focus {outline:0;}
+.formButtonAdd:focus{outline:0}
+
+.formButtonAdd {
+  margin: 0 10px;
+  background-color: #5680e9;
+  border-radius: 100%;
+  width: 70px;
+  height: 70px;
+  font-size: 1.0rem;
+  color:#fff;
+}
+.formButtonAdd:hover {
+  height: 75px;
+  width: 75px;
+  transition: all 0.75s;
+}
+.imgStyle {
+  width: 200px;
+  height: 150px;
+}
+.toggleStyle {
+  margin-left: 20px;
+  /* margin-bottom: 105px; */
+}
+.loginForm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.searchStyles {
+  background-color: #F2F2F2;
+  width: 500px;
+  height: 35px;
+  border: none;
+  text-align: center;
+  font-size: 1rem;
+}
+.soloProductCard {
+  border: 8px solid #84ceeb;
+  border-radius: 10%;
+  margin: 0 20%;
+  width: 60%;
+  height: 750px;
+}
+.itemNameSolo {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.itemPriceSolo {
+  font-size: 1.75rem;
+}
+.imgStyleSolo {
+  width: 500px;
+  height: 400px;
+}
+.itemDescSolo {
+  font-size: 1.75rem;
+  width: 100%;
+
+  /* height: 120px; */
+}
+.descriptionAccount{
+  margin: 3% 6%;
+}
+
+.loading{
+  display: flex;
+  justify-content: center;
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 450px) {
+  .App-header {
+    flex-direction: column;
+    height: 400px;
+    position: relative;
+    
+  }
+
+  .App-header h1 {
+    width: 100%;
+    font-size: 2.2rem;
+    margin: 0;
+  }
+
+  .App-header a {
+    width: 100%;
+    margin: 0;
+    font-size: 1.5rem;
+    padding: 2.5%;
+  }
+
+  .searchStyles {
+    width: 100%;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  .item-container {
+    height: auto;
+  }
+
+}
 }
