@@ -426,4 +426,14 @@ transition: 1s;
     height: auto;
   }
 
+  .soloProductCard {
+    width: 95%;
+    margin: 0;
+  }
+  .soloProductCard img {
+    width: 100%;
+  }
+  .App {
+    width: 100%;
+  }
 }
