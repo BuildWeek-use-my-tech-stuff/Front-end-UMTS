@@ -42,18 +42,9 @@ const Shop = ({ match, product}) => {
       <p className="itemDescSolo">{item.description}</p>
       <label >
        Availablility
-       <Toggle className="toggleStyle"/>
-
-      <img src={item.photo} alt="tech-gear"  className="imgStyle" />
-      <h1>{item.item_name}</h1>
-      <p>${item.price}</p>
-      <p>{item.description}</p>
-      <label >
-      Availability
-       <Toggle defaultChecked={toggle}
-       />
-
-           
+       <Toggle className="toggleStyle"
+       defaultChecked={toggle}
+       />  
      </label>
     </div>
   );
