@@ -113,8 +113,8 @@ const NewRentersForm = ({ isEditing, setIsEditing, product, name, price, descrip
             <button onClink={() => setIsEditing(false)} className="formButton">Cancel</button>
 
 
-            <button type='submit'>{isEditing ? 'Submit Edit' : 'Add Item'}</button>
-            <button onClick={() => setIsEditing(false)}>Cancel</button>
+            <button type='submit' className="formButtonAdd">{isEditing ? 'Submit Edit' : 'Add Item'}</button>
+            <button className="formButton"onClick={() => setIsEditing(false)}>Cancel</button>
 
         </form>
     );
