@@ -100,7 +100,7 @@ const NewRentersForm = ({ isEditing, setIsEditing, product, name, price,descript
                 onChange={handleChange}
                 value={newItem.description}
             />
-            <input className="imgStyle"
+            <input className="imgFormStyle"
                 type="text"
                 placeholder='Upload Image URL'
                 name="photo"
@@ -108,8 +108,8 @@ const NewRentersForm = ({ isEditing, setIsEditing, product, name, price,descript
                 value={newItem.photo}
             />
             
-            <button type='submit'>{isEditing ? 'Submit Edit' : 'Add Item'}</button>
-            <button onClink={() => setIsEditing(false)}>Cancel</button>
+            <button type='submit' className="formButtonAdd">{isEditing ? 'Submit Edit' : 'Add Item'}</button>
+            <button onClink={() => setIsEditing(false)} className="formButton">Cancel</button>
         </form>
     );
 }

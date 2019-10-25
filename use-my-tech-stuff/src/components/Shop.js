@@ -30,15 +30,15 @@ const Shop = ({ match, product}) => {
 
 
   return (
-    <div>
+    <div className="soloProductCard">
       
-      <p>{item.item_name}</p>
-      <p>${item.price}</p>
-      <img src={item.photo} alt="tech-gear"  className="imgStyle" />
-      <p>{item.description}</p>
+      <p className="itemNameSolo">{item.item_name}</p>
+      <p className="itemPriceSolo">${item.price}</p>
+      <img src={item.photo} alt="tech-gear"  className="imgStyleSolo" />
+      <p className="itemDescSolo">{item.description}</p>
       <label >
        Availablility
-       <Toggle />
+       <Toggle className="toggleStyle"/>
            
      </label>
     </div>

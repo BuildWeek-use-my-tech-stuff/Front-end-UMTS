@@ -45,14 +45,14 @@ const RentersDisplay = ({ setEditProduct, product, match, setMyRentals, products
                 <h3>{product.description}</h3>
                 <label >
                 Availablility
-            <Toggle />
+            <Toggle className="toggleStyle"/>
             </label>
 
-                <button onClick={() => deleteItems(product.id)}>Delete</button>
+                <button onClick={() => deleteItems(product.id)} className="rentalEditButton">Delete</button>
                 <button onClick={() => {
                     setIsEditing(true);
                     setEditProduct(product);
-                }}>Edit</button>
+                }} className="rentalEditButton">Edit</button>
             </div>
         </div>    
         </div>

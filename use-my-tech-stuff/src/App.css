@@ -251,7 +251,7 @@ transition: 1s;
 }
 
 .item-container {
-  border: 2px solid gray;
+  border: 4px solid #84ceeb;
   border-radius: 10%;
   margin: 15px 15px;
   width: 282px;
@@ -297,7 +297,6 @@ transition: 1s;
 .product {
   border: 4px solid #84ceeb;
   border-radius: 10%;
-  border-radius: 10%;
   margin: 15px 15px;
   width: 282px;
   height: 315px;
@@ -311,7 +310,7 @@ transition: 1s;
 
 .rentalEditButton {
   background-color: #F2F2F2;
-  margin: 0 0 0 20px;
+  margin: 20px 35px;
   border: none;
   border-radius: 100%;
   width: 60px;
@@ -325,7 +324,85 @@ transition: 1s;
   transition: all 0.75s;
 }
 
+.imgFormStyle {
+  height:50px;
+  background-color: #F2F2F2;
+  margin: 0 0 0 10px;
+  border: none;
+}
+
+.formButton {
+  background-color: #F2F2F2;
+  margin: 0 10px;
+  border: none;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  font-size: 1.0rem;
+}
+
+.formButton:hover {
+  height: 75px;
+  width: 75px;
+  transition: all 0.75s;
+}
+
+.formButtonAdd {
+  background-color: #F2F2F2;
+  margin: 0 10px;
+  border: none;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  font-size: 1.0rem;
+}
+
+.formButtonAdd:hover {
+  height: 75px;
+  width: 75px;
+  transition: all 0.75s;
+}
+
 .imgStyle {
   width: 100px;
   height: 50px;
+}
+
+.toggleStyle {
+  margin-left: 20px;
+}
+
+.searchStyles {
+  background-color: #F2F2F2;
+  width: 500px;
+  height: 35px;
+  border: none;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.soloProductCard {
+  border: 8px solid #84ceeb;
+  border-radius: 10%;
+  margin: 0 20%;
+  width: 60%;
+  height: 750px;
+}
+
+.itemNameSolo {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.itemPriceSolo {
+  font-size: 1.75rem;
+}
+
+.imgStyleSolo {
+  width: 500px;
+  height: 400px;
+}
+
+.itemDescSolo {
+  font-size: 1.75rem;
 }
