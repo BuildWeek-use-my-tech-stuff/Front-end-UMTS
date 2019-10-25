@@ -39,10 +39,10 @@ const RentersDisplay = ({ setEditProduct, product, match, setMyRentals, products
             <div className="item-list">
                 <h1>{product.item_name}</h1>
                 <img src={product.photo} alt="tech-gear"  className="imgStyle" />
-                <h3>{product.price}</h3>
-                <h3>{product.description}</h3>
+                <h3>${product.price}</h3>
+                <h4 className="descriptionAccount">{product.description}</h4>
                 <label >
-                Availablility
+                Availability
 
             <Toggle
                     defaultChecked={toggle}
