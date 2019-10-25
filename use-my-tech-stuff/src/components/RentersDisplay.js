@@ -35,7 +35,7 @@ const RentersDisplay = ({ setEditProduct, product, match, setMyRentals, products
     return (
 
 <>
-            <div>
+  
                 <div className="item-container">
                     <div className="item-list">
                         <h1>{product.item_name}</h1>
@@ -57,7 +57,7 @@ const RentersDisplay = ({ setEditProduct, product, match, setMyRentals, products
                     </div>
                 </div>
 
-            </div>
+            
         </>
     )
 }

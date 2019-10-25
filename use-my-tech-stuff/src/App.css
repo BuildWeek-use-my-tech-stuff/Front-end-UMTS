@@ -424,6 +424,7 @@ transition: 1s;
 
   .item-container {
     height: auto;
+    width: 100%;
   }
 
   .soloProductCard {
@@ -434,6 +435,10 @@ transition: 1s;
     width: 100%;
   }
   .App {
+    width: 100%;
+  }
+  
+  form {
     width: 100%;
   }
 }
