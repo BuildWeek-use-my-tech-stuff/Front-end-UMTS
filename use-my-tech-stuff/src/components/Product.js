@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import Loader from 'react-loader-spinner'
 
 const Product = ({ product }) => {
+
+
+
     return (
         <div className="product">
             <Link to={`/shop/${product.id}`}>

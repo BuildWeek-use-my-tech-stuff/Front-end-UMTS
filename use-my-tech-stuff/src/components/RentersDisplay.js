@@ -29,7 +29,11 @@ const RentersDisplay = ({ setEditProduct, product, match, setMyRentals, products
                 setMyRentals(res.data)
             })
             .catch(err => console.log(err))
+
+            
     }
+
+   
 
 
     return (

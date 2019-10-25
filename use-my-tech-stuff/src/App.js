@@ -14,6 +14,7 @@ import { UserContext } from "./contexts/UserContext";
 import Shop from './components/Shop'
 import Account from './components/Account'
 import DashItems from './components/DashItems';
+import Loader from 'react-loader-spinner'
 
 
 
@@ -22,7 +23,7 @@ function App(props) {
   const [saved, setSaved] = useState([]);
   const [myRentals, setMyRentals] = useState([]);
   const [user, setUser] = useState("");
-
+  const [loading, setLoading] =useState(true)
 
   useEffect(() => {
     axiosWithAuth()
@@ -30,11 +31,12 @@ function App(props) {
       .then(res => {
         console.log("Products successfully fetched!\n", res.data);
         setProducts(res.data);
+        setLoading(false)
       })
       .catch(err => console.log("Error fetching products:\n", err));
 
 
-  }, [])
+  }, [products])
 
 
   useEffect(() => {
@@ -43,8 +45,20 @@ function App(props) {
       .then(res => {
         console.log("rentalsState", res.data)
         setMyRentals(res.data)
+        setLoading(false)
       })
   }, [myRentals])
+
+  if(loading === true){
+    return(
+    <div className="loading">
+        <Loader 
+        type="Circles"
+        color="#40968e"
+        height={200} width={150} />
+    </div>
+    )
+} 
 
 
 
