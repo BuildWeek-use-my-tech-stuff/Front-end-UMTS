@@ -59,7 +59,7 @@ function App(props) {
               <Route path="/NewSignUp" component={NewSignUp} />
               <Route path="/shop/:id" component={Shop} />
               <PrivateRoute path="/dashboard" component={Dashboard} />
-              <Route path="/account" component={Account} />
+              <PrivateRoute path="/account" component={Account} />
             </UserContext.Provider>
           </SavedContext.Provider>
         </MyRentalsContext.Provider>
