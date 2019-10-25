@@ -1,19 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Loader from 'react-loader-spinner'
+// import Loader from 'react-loader-spinner'
 
 const Product = ({ product }) => {
 
-    if(product.length === 0){
-        return(
-        <div className="loading">
-            <Loader 
-            type="Circles"
-            color="#40968e"
-            height={200} width={150} />
-        </div>
-        )
-    } 
 
 
     return (

@@ -47,7 +47,7 @@ function App(props) {
         setMyRentals(res.data)
         setLoading(false)
       })
-  }, [myRentals])
+  }, [myRentals, products])
 
   if(loading === true){
     return(

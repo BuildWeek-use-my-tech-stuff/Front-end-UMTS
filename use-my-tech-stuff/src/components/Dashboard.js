@@ -9,7 +9,7 @@ const Dashboard = props => {
     useEffect(() => { 
         console.log("Products in Dashboard:\n", products);
         setDisplayed(products);
-    }, [products]);
+    }, []);
     return (
         <div className="dashboard">
             <h2>Tech Gear for Rent</h2>
