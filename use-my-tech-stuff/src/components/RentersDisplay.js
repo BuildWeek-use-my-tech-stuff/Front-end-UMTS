@@ -9,11 +9,11 @@ import Toggle from 'react-toggle'
 
 
 
-
 const RentersDisplay = ({ setEditProduct, product, match, setMyRentals, products, setProduct, setIsEditing, isEditing }, props) => {
-
+    
     const { removeItem, } = useContext(MyRentalsContext)
-
+    
+    const [toggle, setToggle]= useState(true)
 
 
 
@@ -32,8 +32,6 @@ const RentersDisplay = ({ setEditProduct, product, match, setMyRentals, products
     }
 
 
-
-
     return (
 <>
     <div>
@@ -45,7 +43,10 @@ const RentersDisplay = ({ setEditProduct, product, match, setMyRentals, products
                 <h3>{product.description}</h3>
                 <label >
                 Availablility
-            <Toggle />
+
+            <Toggle
+                    defaultChecked={toggle}
+            />
             </label>
 
                 <button onClick={() => deleteItems(product.id)}>Delete</button>

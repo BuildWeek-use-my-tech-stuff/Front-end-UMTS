@@ -7,14 +7,8 @@ import NewRentersForm from './NewRentersForm'
 import axios from 'axios'
 const Account = () => {
     const { products, myRentals } = useContext(MyRentalsContext)
-    // const [rentersProducts,setRentersProducts]=useState([])
     const [isEditing, setIsEditing] = useState(false)
     const [editProduct, setEditProduct] = useState({});
-
-    //  useEffect(() => { 
-    //     console.log("Products in Dashboard:\n", myRentals);
-    //     setDisplayed(products);
-    // }, [products]);
 
 
     return myRentals.length ? (
@@ -28,12 +22,12 @@ const Account = () => {
                 name={editProduct.item_name}
                 editId={editProduct.id}
                 description={editProduct.description}
-            />}
+                photo={editProduct.photo}
+            />
             <div className="accountContainer">
                 {myRentals.map(product => {
                     return (
                         <>
-                    
                             <RentersDisplay
                                 setEditProduct={setEditProduct}
                                 key={product.id}
@@ -43,7 +37,6 @@ const Account = () => {
                         </>
                     )
                 })}
-                {/* </div> */}
             </div>
 
         </div>
