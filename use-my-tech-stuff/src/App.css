@@ -159,6 +159,7 @@ body {
   font-size: 1rem;
   text-align: center;
 }
+.renterItemName:focus{outline:0}
 /* .renterItemName:hover {
   border: 15px solid #949494;
   transition: 1s;
@@ -173,6 +174,7 @@ body {
   text-align: center;
   margin: 0 20px;
 }
+.renterItemPrice:focus{outline:0}
 /* .renterItemPrice:hover {
 width: 200px;
 height: 200px;
@@ -187,6 +189,7 @@ transition: 1s;
   font-size: 1rem;
   text-align: center;
 }
+.renterItemDescription:focus{outline:0}
 /* .renterItemDescription:hover {
   width: 200px;
   height: 200px;
@@ -285,39 +288,51 @@ transition: 1s;
   height: 60px;
   font-size: 1.0rem;
 }
-.rentalEditButton:hover {
+
+.rentalEditButton:active{outline: 0;}
+
+/* .rentalEditButton:hover {
   height: 75px;
   width: 75px;
   transition: all 0.75s;
-}
+} */
+
 .imgFormStyle {
   height:50px;
   background-color: #F2F2F2;
   margin: 0 0 0 10px;
   border: none;
 }
+
+.imgFormStyle:focus{outline:0}
+
+
 .formButton {
-  background-color: #F2F2F2;
+  border: 2px solid #5680e9;
   margin: 0 10px;
-  border: none;
+
   border-radius: 100%;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   font-size: 1.0rem;
+  color:#000;
 }
 .formButton:hover {
   height: 75px;
   width: 75px;
   transition: all 0.75s;
 }
+.formButton:focus {outline:0;}
+.formButtonAdd:focus{outline:0}
+
 .formButtonAdd {
-  background-color: #F2F2F2;
   margin: 0 10px;
-  border: none;
+  background-color: #5680e9;
   border-radius: 100%;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   font-size: 1.0rem;
+  color:#fff;
 }
 .formButtonAdd:hover {
   height: 75px;
